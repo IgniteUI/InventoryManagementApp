@@ -1,50 +1,65 @@
 export class Product {
 
-    get Product() {
+    get Product(): string {
         return this.product;
     }
+
     set Product(val) {
         this.product = val;
     }
-    get SKU() {
+
+    get SKU(): string {
         return this.sku;
     }
+
     set SKU(val) {
         this.sku = val;
-    }    
-    get Supplier() {
+    }
+
+    get Supplier(): string {
         return this.supplier;
     }
+
     set Supplier(val) {
         this.supplier = val;
     }
-    get Weight() {
+
+    get Weight(): string {
         return this.weight;
     }
+
     set Weight(val) {
         this.weight = val;
     }
-    get PkgDims() {
+
+    get PkgDims(): string {
         return this.pkgDims;
     }
+
     set PkgDims(val) {
         this.pkgDims = val;
     }
-    get PhysOnHand() {
+
+    get PhysOnHand(): number {
         return this.physOnHand;
     }
+
     set PhysOnHand(val) {
         this.physOnHand = val;
     }
-    get Available() {
+
+    get Available(): number {
         return this.available;
     }
+
     set Available(val) {
         this.available = val;
     }
-    get Commited() {
+
+    get Commited(): number  {
         return this.commited;
     }
+
     set Commited(val) {
         this.commited = val;
     }
@@ -59,11 +74,11 @@ export class Product {
     private commited: number;
 
     constructor() {
-        this.product = "";
-        this.sku = "";
-        this.supplier = "";
-        this.weight = "";
-        this.pkgDims = "";
+        this.product = '';
+        this.sku = '';
+        this.supplier = '';
+        this.weight = '';
+        this.pkgDims = '';
         this.physOnHand = 0;
         this.available = 0;
         this.commited = 0;

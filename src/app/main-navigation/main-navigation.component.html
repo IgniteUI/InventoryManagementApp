@@ -1,4 +1,4 @@
-<igx-nav-drawer id="navigation"  #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
+<igx-nav-drawer id="main-navigation"  #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
     <ng-template igxDrawer>
         <nav>
             <a routerLink="/dashboard"  igxDrawerItem>LOGO</a>
@@ -11,9 +11,9 @@
                 <igx-icon fontSet="material">{{ item.icon }}</igx-icon>
                 <span>{{ item.text }}</span>
             </a>
-            <div class="imm-fab-toggle">
-                <span class="imm-fab-toggle__text">Collapse</span>
-                <button igxButton="fab"  igxToggleAction="navigation">
+            <div class="fab-toggle">
+                <span class="fab-toggle__text">Collapse</span>
+                <button igxButton="fab"  igxToggleAction="main-navigation">
                     <igx-icon fontSet="material">menu</igx-icon>
                 </button>
             </div>
@@ -30,8 +30,8 @@
             >
                 <igx-icon fontSet="material">{{ item.icon }}</igx-icon>
             </a>
-            <div class="imm-fab-toggle">
-                <button igxButton="fab" igxToggleAction="navigation">
+            <div class="fab-toggle">
+                <button igxButton="fab" igxToggleAction="main-navigation">
                     <igx-icon fontSet="material">menu</igx-icon>
                 </button>
             </div>

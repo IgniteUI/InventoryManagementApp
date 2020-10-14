@@ -13,15 +13,17 @@ import {
     IgxInputGroupModule,
     IgxToastModule,
     IgxComboModule,
-    IgxNavigationDrawerModule
+    IgxNavigationDrawerModule, IgxNavbarModule
 } from 'igniteui-angular';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+import { UserNavigationComponent } from './user-navigation/user-navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    MainNavigationComponent
+    MainNavigationComponent,
+    UserNavigationComponent
   ],
     imports: [
         BrowserModule,
@@ -36,7 +38,8 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
         IgxToastModule,
         IgxComboModule,
         IgxDividerModule,
-        IgxNavigationDrawerModule
+        IgxNavigationDrawerModule,
+        IgxNavbarModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,10 @@
 @import '../../layout-config';
 
-@include b(imm-fab-toggle) {
+:host {
+    max-width: $drawer-width;
+}
+
+@include b(fab-toggle) {
     display: flex;
     align-items: center;
     justify-content: center;

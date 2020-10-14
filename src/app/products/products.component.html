@@ -1,27 +1,4 @@
 <div class="grid__wrapper">
-    <div>
-        <h4>Products</h4>
-        <button igxButton="icon" igxRipple [igxToggleAction]="dropDown" [igxToggleOutlet]="outlet"
-        [overlaySettings]="overlaySettings">
-            <!--<span class="itw-offset">Ignite UI Inventory Management</span>-->
-            <igx-icon fontSet="material">palette</igx-icon>
-        </button>
-        <!--<igniteui-theming-widget themeUrl="https://igniteuithemingwidget-staging.infragistics.com/api/taas"></igniteui-theming-widget>-->
-        <igx-drop-down #dropDown (onSelection)="onThemeSelectionHandler($event)" [width]="'250px'">
-            <igx-drop-down-item *ngFor="let theme of themes" [value]="theme.globalTheme">
-                <div class="itw-theme-item">
-                    <div class="itw-theme-switch__colors">
-                        <span class="itw-theme-switch__color itw-theme-switch__color--primary"
-                            [style.background]='getCurrentPrimaryColor(theme.globalTheme)'></span>
-                        <span class="itw-theme-switch__color itw-theme-switch__color--secondary"
-                            [style.background]='getCurrentSecondaryColor(theme.globalTheme)'></span>
-                    </div>
-                    <span class="itw-theme-item-label">{{theme.name}}</span>
-                </div>
-            </igx-drop-down-item>
-        </igx-drop-down>
-        <div class="itw-overlayOutlet" igxOverlayOutlet #outlet="overlay-outlet"></div>
-    </div>
     <div class="filtering-buttons-row">
         <button igxButton="flat">Active</button>
         <button igxButton="flat" (click)="filterLowInventory()">Low Inventory</button>
