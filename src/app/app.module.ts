@@ -1,35 +1,43 @@
 import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
-//import { ThemingWidgetModule } from '@infragistics/igniteui-theming-widget/theming-widget-module';
-import { IgxActionStripModule, IgxGridModule, IgxDialogModule, IgxDividerModule, IgxInputGroupModule, IgxToastModule, IgxComboModule } from 'igniteui-angular';
+import {
+    IgxActionStripModule,
+    IgxGridModule,
+    IgxDialogModule,
+    IgxDividerModule,
+    IgxInputGroupModule,
+    IgxToastModule,
+    IgxComboModule,
+    IgxNavigationDrawerModule
+} from 'igniteui-angular';
+import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProductsComponent
+    routingComponents,
+    MainNavigationComponent
   ],
-  imports: [
-    BrowserModule,
-    HammerModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    IgxActionStripModule,
-    IgxGridModule,
-    IgxDialogModule,
-    IgxInputGroupModule,
-    IgxToastModule,
-    IgxComboModule,
-    IgxDividerModule
-  ],
+    imports: [
+        BrowserModule,
+        HammerModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        IgxActionStripModule,
+        IgxGridModule,
+        IgxDialogModule,
+        IgxInputGroupModule,
+        IgxToastModule,
+        IgxComboModule,
+        IgxDividerModule,
+        IgxNavigationDrawerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

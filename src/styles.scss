@@ -5,18 +5,12 @@
 /* See: https://www.infragistics.com/products/ignite-ui-angular/angular/components/themes.html */
 @import "~igniteui-angular/lib/core/styles/themes/index";
 
-$primary: #731963 !default;
-$secondary: #ce5712 !default;
-
-$app-palette: igx-palette($primary, $secondary);
-
 /* autoprefixer grid: on */
 
 @include igx-core();
 @include igx-indigo-light-theme($light-indigo-palette);
-//@include igx-theme($app-palette);
-
 
 html, body {
   height: 100%;
+  overflow: hidden;
 }

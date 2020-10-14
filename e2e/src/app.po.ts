@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getWelcomeText(): Promise<string> {
-    return element(by.css('app-home h2')).getText() as Promise<string>;
+    return element(by.css('app-dashboard h2')).getText() as Promise<string>;
   }
 }

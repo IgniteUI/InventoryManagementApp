@@ -1,5 +1,13 @@
-.outer-wrapper {
+@import '../layout-config';
+
+:host {
   display: flex;
-  justify-content: center;
-  height: 100%;
+}
+
+@include b(inm-main-content) {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  padding: $page-gap;
+  overflow-y: auto;
 }

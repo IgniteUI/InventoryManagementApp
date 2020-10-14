@@ -1,0 +1,16 @@
+<igx-nav-drawer id="navigation" #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
+    <ng-template igxDrawer>
+        <nav>
+            <span igxDrawerItem>LOGO</span>
+            <span *ngFor="let item of mainNavItems"
+                  igxDrawerItem
+                  [routerLink]="item.path"
+                  [routerLinkActive]="selected"
+                  igxRipple
+                  (click)="navigate(item)">
+                <igx-icon fontSet="material">{{ item.icon }}</igx-icon>
+                <span>{{ item.text }}</span>
+            </span>
+        </nav>
+    </ng-template>
+</igx-nav-drawer>
