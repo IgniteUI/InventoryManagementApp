@@ -1,112 +1,126 @@
-<div class="grid__wrapper">
-    <div class="filtering-buttons-row">
-        <button igxButton="flat">Active</button>
-        <button igxButton="flat" (click)="filterLowInventory()">Low Inventory</button>
-        <button igxButton="flat">Kits</button>
-        <button igxButton="flat">Dropship</button>
-        <button igxButton="flat">Total Commited</button>
-        <button igxButton="flat">Oversold</button>
-        <button igxButton="flat">Archived</button>
-    </div>
-    <div class="editing-buttons-row">
-        <igx-input-group type="search" class="offset">
-            <igx-prefix>
-                <igx-icon *ngIf="searchText.length == 0">search</igx-icon>
-                <igx-icon *ngIf="searchText.length > 0" (click)="clearSearch()">clear</igx-icon>
-            </igx-prefix>
-    
-            <input #search1 id="search1" igxInput placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="grid.findNext(searchText, caseSensitive, exactMatch)"
-                (keydown)="searchKeyDown($event)" />
-    
-            <igx-suffix *ngIf="searchText.length > 0">
-                <div class="resultsText" *ngIf="grid.lastSearchInfo">
+<div class="filtering-buttons-row">
+    <button igxButton="flat">Active</button>
+    <button igxButton="flat" (click)="filterLowInventory()">Low Inventory</button>
+    <button igxButton="flat">Kits</button>
+    <button igxButton="flat">Dropship</button>
+    <button igxButton="flat">Total Commited</button>
+    <button igxButton="flat">Oversold</button>
+    <button igxButton="flat">Archived</button>
+</div>
+
+
+<div class="search-row">
+    <igx-input-group type="search" class="offset">
+        <igx-prefix>
+            <igx-icon *ngIf="searchText.length == 0">search</igx-icon>
+            <igx-icon *ngIf="searchText.length > 0" (click)="clearSearch()">clear</igx-icon>
+        </igx-prefix>
+
+        <input #search1 id="search1" igxInput placeholder="Search" [(ngModel)]="searchText"
+               (ngModelChange)="grid.findNext(searchText, caseSensitive, exactMatch)"
+               (keydown)="searchKeyDown($event)"/>
+
+        <igx-suffix *ngIf="searchText.length > 0">
+            <div class="resultsText" *ngIf="grid.lastSearchInfo">
                     <span *ngIf="grid.lastSearchInfo.matchInfoCache.length > 0">
-                        {{ grid.lastSearchInfo.activeMatchIndex + 1 }} of {{ grid.lastSearchInfo.matchInfoCache.length }}
+                        {{ grid.lastSearchInfo.activeMatchIndex + 1 }}
+                        of {{ grid.lastSearchInfo.matchInfoCache.length }}
                         results
                     </span>
-                    <span *ngIf="grid.lastSearchInfo.matchInfoCache.length == 0">
+                <span *ngIf="grid.lastSearchInfo.matchInfoCache.length == 0">
                         No results
                     </span>
-                </div>
-                <!--<div class="chips">
-                    <igx-chips-area>
-                        <igx-chip (click)="updateSearch()" [color]="caseSensitive? 'lightgrey' : 'rgba(0, 0, 0, .04)'">
-                            <span>Case Sensitive</span>
-                        </igx-chip>
-                        <igx-chip (click)="updateExactSearch()" [color]="exactMatch? 'lightgrey' : 'rgba(0, 0, 0, .04)'">
-                            <span>Exact Match</span>
-                        </igx-chip>
-                    </igx-chips-area>
-                </div>-->
-                <div class="searchButtons">
-                    <button igxButton="icon" igxRipple igxRippleCentered="true" (click)="grid.findPrev(searchText, caseSensitive, exactMatch)">
-                        <igx-icon fontSet="material">navigate_before</igx-icon>
-                    </button>
-                    <button igxButton="icon" igxRipple igxRippleCentered="true" (click)="grid.findNext(searchText, caseSensitive, exactMatch)">
-                        <igx-icon fontSet="material">navigate_next</igx-icon>
-                    </button>
-                </div>
-            </igx-suffix>
-        </igx-input-group>
-        <div class="buttons-wrapper">
-            <button igxButton="flat" (click)="dialogAdd.open()" class="addProdBtn">Add Product</button>
-            <button igxButton [disabled]="!undoEnabled" (click)="undo()">Undo</button>
-            <button igxButton [disabled]="!redoEnabled" (click)="redo()">Redo</button>
-            <button igxButton [disabled]="!hasTransactions" (click)="commit()">Commit</button>
-        </div>
-    </div>
+            </div>
+            <!--<div class="chips">
+                <igx-chips-area>
+                    <igx-chip (click)="updateSearch()" [color]="caseSensitive? 'lightgrey' : 'rgba(0, 0, 0, .04)'">
+                        <span>Case Sensitive</span>
+                    </igx-chip>
+                    <igx-chip (click)="updateExactSearch()" [color]="exactMatch? 'lightgrey' : 'rgba(0, 0, 0, .04)'">
+                        <span>Exact Match</span>
+                    </igx-chip>
+                </igx-chips-area>
+            </div>-->
+            <div class="searchButtons">
+                <button igxButton="icon" igxRipple igxRippleCentered="true"
+                        (click)="grid.findPrev(searchText, caseSensitive, exactMatch)">
+                    <igx-icon fontSet="material">navigate_before</igx-icon>
+                </button>
+                <button igxButton="icon" igxRipple igxRippleCentered="true"
+                        (click)="grid.findNext(searchText, caseSensitive, exactMatch)">
+                    <igx-icon fontSet="material">navigate_next</igx-icon>
+                </button>
+            </div>
+        </igx-suffix>
+    </igx-input-group>
+</div>
+
+<div class="editing-buttons-row">
+    <button igxButton="flat" (click)="dialogAdd.open()" class="addProdBtn">Add Product</button>
+    <button igxButton [disabled]="!undoEnabled" (click)="undo()">Undo</button>
+    <button igxButton [disabled]="!redoEnabled" (click)="redo()">Redo</button>
+    <button igxButton [disabled]="!hasTransactions" (click)="commit()">Commit</button>
+</div>
+
+<div class="grid-wrapper">
     <igx-grid #grid [data]="data" [primaryKey]="'sku'" [rowEditable]="true" [rowSelection]='selectionMode'
-     [displayDensity]="density" width="1000px" height="550px" (mouseleave)="onMouseLeave(actionstrip)"
-     (mouseover)="onMouseOver($event, grid, actionstrip)" >
+              [displayDensity]="density" (mouseleave)="onMouseLeave(actionstrip)"
+              (mouseover)="onMouseOver($event, grid, actionstrip)">
         <igx-column field="product" header="Product" [dataType]="'string'" [groupable]="true" width="30%"></igx-column>
         <igx-column field="sku" header="SKU" [groupable]="true"></igx-column>
         <igx-column field="supplier" header="Supplier" [dataType]="'string'" [groupable]="true" width="10%"></igx-column>
         <igx-column field="weight" header="Weight" dataType="string" [groupable]="true" width="10%"></igx-column>
         <igx-column field="pkgDims" header="Pkg Dims" [dataType]="'string'" [groupable]="true"></igx-column>
-        <igx-column field="physOnHand" header="Phys On Hand" dataType="number" [groupable]="true" [hasSummary]="true" [summaries]="numSummary" width="10%"></igx-column>
-        <igx-column field="available" header="Available" dataType="number" [groupable]="true" [hasSummary]="true" [summaries]="numSummary" width="10%"></igx-column>
-        <igx-column field="commited" header="Commited" dataType="number" [groupable]="true" [hasSummary]="true" [summaries]="numSummary" width="10%"></igx-column>
-    
+        <igx-column field="physOnHand" header="Phys On Hand" dataType="number" [groupable]="true" [hasSummary]="true"
+                    [summaries]="numSummary" width="10%"></igx-column>
+        <igx-column field="available" header="Available" dataType="number" [groupable]="true" [hasSummary]="true"
+                    [summaries]="numSummary" width="10%"></igx-column>
+        <igx-column field="commited" header="Commited" dataType="number" [groupable]="true" [hasSummary]="true"
+                    [summaries]="numSummary" width="10%"></igx-column>
+
         <igx-action-strip #actionstrip>
             <igx-grid-pinning-actions></igx-grid-pinning-actions>
             <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
         </igx-action-strip>
     </igx-grid>
-    <igx-toast #toast [autoHide]="true" [position]="position"></igx-toast>
-    <igx-dialog #dialogAdd title="Add New Product" [rightButtonLabel]="'Add Product'" [leftButtonLabel]="'Cancel'" (onLeftButtonSelect)="cancel()" (onRightButtonSelect)="addProduct()">
-        <div class="dialogNewRecord">
-            <igx-input-group type="border">
-                <label igxLabel for="product">Product Title</label>
-                <input igxInput id="product" type="text" [(ngModel)]="product.Product" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="sku">SKU</label>
-                <input igxInput id="sku" type="text" [(ngModel)]="product.SKU" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="supplier">Supplier</label>
-                <input igxInput id="supplier" type="text" [(ngModel)]="product.Supplier" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="weight">Weight</label>
-                <input igxInput id="weight" type="text" [(ngModel)]="product.Weight" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="pkgdims">Package Dimensions</label>
-                <input igxInput id="pkgdims" type="text" [(ngModel)]="product.PkgDims" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="physonhand">Physical On Hand</label>
-                <input igxInput id="physonhand" type="number" [(ngModel)]="product.PhysOnHand" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="available">Available</label>
-                <input igxInput id="available" type="number" [(ngModel)]="product.Available" />
-            </igx-input-group>
-            <igx-input-group type="border">
-                <label igxLabel for="commited">Commited</label>
-                <input igxInput id="commited" type="number" [(ngModel)]="product.Commited" />
-            </igx-input-group>
-        </div>
-    </igx-dialog>
 </div>
+
+<igx-toast #toast [autoHide]="true" [position]="position"></igx-toast>
+
+<igx-dialog #dialogAdd title="Add New Product" [rightButtonLabel]="'Add Product'" [leftButtonLabel]="'Cancel'"
+            (onLeftButtonSelect)="cancel()" (onRightButtonSelect)="addProduct()">
+    <div class="dialogNewRecord">
+        <igx-input-group type="border">
+            <label igxLabel for="product">Product Title</label>
+            <input igxInput id="product" type="text" [(ngModel)]="product.Product"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="sku">SKU</label>
+            <input igxInput id="sku" type="text" [(ngModel)]="product.SKU"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="supplier">Supplier</label>
+            <input igxInput id="supplier" type="text" [(ngModel)]="product.Supplier"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="weight">Weight</label>
+            <input igxInput id="weight" type="text" [(ngModel)]="product.Weight"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="pkgdims">Package Dimensions</label>
+            <input igxInput id="pkgdims" type="text" [(ngModel)]="product.PkgDims"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="physonhand">Physical On Hand</label>
+            <input igxInput id="physonhand" type="number" [(ngModel)]="product.PhysOnHand"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="available">Available</label>
+            <input igxInput id="available" type="number" [(ngModel)]="product.Available"/>
+        </igx-input-group>
+        <igx-input-group type="border">
+            <label igxLabel for="commited">Commited</label>
+            <input igxInput id="commited" type="number" [(ngModel)]="product.Commited"/>
+        </igx-input-group>
+    </div>
+</igx-dialog>
