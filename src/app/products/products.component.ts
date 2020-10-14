@@ -3,7 +3,7 @@ import { PRODUCTS } from './localData';
 import { Product } from "./product";
 import { IgxActionStripComponent, ConnectedPositioningStrategy, IgxColumnComponent, IgxDialogComponent, IgxGridComponent, IgxGridTransaction, IgxTransactionService, Transaction,
   IgxSummaryResult, HorizontalAlignment, GridSummaryCalculationMode, GridSummaryPosition, IgxNumberSummaryOperand,
-  IgxToastComponent, IgxToastPositionEnum, IgxNumberFilteringOperand, ISelectionEventArgs, NoOpScrollStrategy, VerticalAlignment } from 'igniteui-angular';
+  IgxToastComponent, IgxToastPosition, IgxNumberFilteringOperand, ISelectionEventArgs, NoOpScrollStrategy, VerticalAlignment } from 'igniteui-angular';
 import {
     MATERIAL_LIGHT, MATERIAL_DARK, FLUENT_LIGHT, FLUENT_DARK, BOOTSTRAP_LIGHT,
     BOOTSTRAP_DARK, INDIGO_LIGHT, INDIGO_DARK
@@ -51,7 +51,7 @@ export class ProductsComponent implements OnInit {
   public data: any[];
   public product;
   public numSummary = NumberSummary;
-  public position = IgxToastPositionEnum.middle;
+  public position = IgxToastPosition.Middle;
   title = 'grid';
   public selectionMode = "multiple";
   public transactionsData: Transaction[] = [];
