@@ -78,8 +78,8 @@
             <button igxButton [disabled]="!hasTransactions" (click)="commit()">Commit</button>
         </div>
     </div>
-    <igx-grid #grid [data]="data" [primaryKey]="'SKU'" [rowEditable]="true" [rowSelection]='selectionMode'
-     (onColumnInit)="onColumnInit($event)" [displayDensity]="density" width="1000px" height="550px" (mouseleave)="onMouseLeave(actionstrip)"
+    <igx-grid #grid [data]="data" [primaryKey]="'sku'" [rowEditable]="true" [rowSelection]='selectionMode'
+     [displayDensity]="density" width="1000px" height="550px" (mouseleave)="onMouseLeave(actionstrip)"
      (mouseover)="onMouseOver($event, grid, actionstrip)" >
         <igx-column field="product" header="Product" [dataType]="'string'" [groupable]="true" width="30%"></igx-column>
         <igx-column field="sku" header="SKU" [groupable]="true"></igx-column>

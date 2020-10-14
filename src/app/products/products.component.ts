@@ -199,12 +199,6 @@ export class ProductsComponent implements OnInit {
       this.grid.findNext(this.searchText, this.caseSensitive, this.exactMatch);
   }
 
-  public onColumnInit(column: IgxColumnComponent) {
-    if (column.field === 'RegistererDate') {
-      column.formatter = (date => date.toLocaleDateString());
-    }
-  }
-
   public undo() {
     /* exit edit mode */
     this.grid.endEdit(/* commit the edit transaction */ false);

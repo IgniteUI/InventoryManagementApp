@@ -13,7 +13,8 @@ $app-palette: igx-palette($primary, $secondary);
 /* autoprefixer grid: on */
 
 @include igx-core();
-@include igx-theme($app-palette);
+@include igx-indigo-light-theme($light-indigo-palette);
+//@include igx-theme($app-palette);
 
 
 html, body {
