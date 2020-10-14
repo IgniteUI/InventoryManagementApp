@@ -10,14 +10,14 @@ import { mainNavItems } from '../app-routing.module';
 export class MainNavigationComponent implements OnInit {
     public mainNavItems = mainNavItems;
 
-    public selected = 'Avatar';
+    public drawerState = {
+        miniTemplate: true,
+        open: true,
+        pin: false
+    };
 
     @ViewChild(IgxNavigationDrawerComponent, {static: true})
     public drawer: IgxNavigationDrawerComponent;
-
-    public navigate(item): void {
-        this.selected = item.text;
-    }
 
     constructor() {
     }

@@ -1,16 +1,40 @@
-<igx-nav-drawer id="navigation" #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
+<igx-nav-drawer id="navigation"  #drawer [isOpen]="true" [pin]="true" [pinThreshold]="0">
     <ng-template igxDrawer>
         <nav>
-            <span igxDrawerItem>LOGO</span>
-            <span *ngFor="let item of mainNavItems"
+            <a routerLink="/dashboard"  igxDrawerItem>LOGO</a>
+            <a *ngFor="let item of mainNavItems"
                   igxDrawerItem
                   [routerLink]="item.path"
-                  [routerLinkActive]="selected"
+                  [routerLinkActive]="'igx-nav-drawer__item--active'"
                   igxRipple
-                  (click)="navigate(item)">
+                  >
                 <igx-icon fontSet="material">{{ item.icon }}</igx-icon>
                 <span>{{ item.text }}</span>
-            </span>
+            </a>
+            <div class="imm-fab-toggle">
+                <span class="imm-fab-toggle__text">Collapse</span>
+                <button igxButton="fab"  igxToggleAction="navigation">
+                    <igx-icon fontSet="material">menu</igx-icon>
+                </button>
+            </div>
+        </nav>
+    </ng-template>
+
+    <ng-template igxDrawerMini>
+        <nav>
+            <a *ngFor="let item of mainNavItems"
+                  igxDrawerItem
+                  [routerLink]="item.path"
+                  [routerLinkActive]="'igx-nav-drawer__item--active'"
+                  igxRipple
+            >
+                <igx-icon fontSet="material">{{ item.icon }}</igx-icon>
+            </a>
+            <div class="imm-fab-toggle">
+                <button igxButton="fab" igxToggleAction="navigation">
+                    <igx-icon fontSet="material">menu</igx-icon>
+                </button>
+            </div>
         </nav>
     </ng-template>
 </igx-nav-drawer>

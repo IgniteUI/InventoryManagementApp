@@ -1,0 +1,16 @@
+@import '../../layout-config';
+
+@include b(imm-fab-toggle) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: $grid-gap;
+
+    @include e(text) {
+        margin-right: rem(8px);
+    }
+}
