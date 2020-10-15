@@ -4,6 +4,19 @@
     max-width: $drawer-width;
 }
 
+// SVG Logo colors.
+.a {
+    fill: none;
+}
+
+.b {
+    fill: $logo-graphic-color;
+}
+
+.c {
+    fill: $logo-text-color;
+}
+
 @include b(fab-toggle) {
     display: flex;
     align-items: center;
@@ -15,6 +28,24 @@
     bottom: $grid-gap;
 
     @include e(text) {
+        font-size: rem(12px);
         margin-right: rem(8px);
+        color: var(--igx-grays-900);
+        cursor: pointer;
+    }
+}
+
+@include b(logo) {
+    min-height: 56px;
+    margin-top: 0 !important;
+
+    @include e(image) {
+        width: rem(130px);
+        height: rem(38px);
+    }
+
+    @include e(image, $m: mobile) {
+        width: rem(36px);
+        height: rem(36px);
     }
 }

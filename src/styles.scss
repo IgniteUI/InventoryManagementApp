@@ -1,9 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-// Standard CSS normalize, comment out if not required or using a different module
 @import "~minireset.css/minireset";
-
-/* See: https://www.infragistics.com/products/ignite-ui-angular/angular/components/themes.html */
-@import "~igniteui-angular/lib/core/styles/themes/index";
+@import "layout-config";
 
 /* autoprefixer grid: on */
 
@@ -13,4 +9,9 @@
 html, body {
   height: 100%;
   overflow: hidden;
+}
+
+body {
+  background: var(--igx-surface-500);
+  color: var(--igx-surface-500-contrast);
 }

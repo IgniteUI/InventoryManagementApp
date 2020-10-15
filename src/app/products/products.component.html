@@ -8,9 +8,10 @@
     <button igxButton="flat">Archived</button>
 </div>
 
+<igx-divider h></igx-divider>
 
 <div class="search-row">
-    <igx-input-group type="search" class="offset">
+    <igx-input-group type="search" class="search-row__input">
         <igx-prefix>
             <igx-icon *ngIf="searchText.length == 0">search</igx-icon>
             <igx-icon *ngIf="searchText.length > 0" (click)="clearSearch()">clear</igx-icon>
@@ -53,13 +54,13 @@
             </div>
         </igx-suffix>
     </igx-input-group>
-</div>
 
-<div class="editing-buttons-row">
-    <button igxButton="flat" (click)="dialogAdd.open()" class="addProdBtn">Add Product</button>
-    <button igxButton [disabled]="!undoEnabled" (click)="undo()">Undo</button>
-    <button igxButton [disabled]="!redoEnabled" (click)="redo()">Redo</button>
-    <button igxButton [disabled]="!hasTransactions" (click)="commit()">Commit</button>
+    <div>
+        <button igxButton="flat" (click)="dialogAdd.open()" class="addProdBtn">Add Product</button>
+        <button igxButton [disabled]="!undoEnabled" (click)="undo()">Undo</button>
+        <button igxButton [disabled]="!redoEnabled" (click)="redo()">Redo</button>
+        <button igxButton [disabled]="!hasTransactions" (click)="commit()">Commit</button>
+    </div>
 </div>
 
 <div class="grid-wrapper">

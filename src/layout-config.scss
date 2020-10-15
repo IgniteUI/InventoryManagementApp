@@ -1,6 +1,11 @@
+@import "~igniteui-angular/lib/core/styles/themes/index";
 @import "~igniteui-angular/lib/core/styles/base/index";
 // Vars
 $gap: rem(32px);
 $page-gap: $gap;
 $grid-gap: $gap;
-$drawer-width: rem(228px)
+$drawer-width: rem(228px);
+
+$notification-bg-color: #f2591c;
+$logo-graphic-color: #f2591c;
+$logo-text-color: var(--igx-navdrawer-item-active-text-color);
