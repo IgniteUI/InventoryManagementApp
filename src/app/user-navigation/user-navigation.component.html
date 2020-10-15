@@ -1,0 +1,39 @@
+<igx-navbar class="user-nav" [title]="'Page'" [isActionButtonVisible]="true">
+    <div class="user-nav__profile" igxLayout igxLayoutDir="row" igxLayoutItemAlign="center">
+        <igx-avatar size="small" [roundShape]="true"  src="https://picsum.photos/id/1005/200/300"></igx-avatar>
+        <div class="user-nav__profile-text" igxLayout igxLayoutDir="column">
+            <strong class="user-nav__profile-name">User name</strong>
+            <span class="user-nav__profile-role">Admin</span>
+        </div>
+    </div>
+    <button igxButton="icon">
+        <igx-icon class="user-nav__notification">
+            <igx-badge class="user-nav__badge"></igx-badge>
+            notifications
+        </igx-icon>
+    </button>
+
+    <button igxButton="icon">
+        <igx-icon
+            igxRipple [igxToggleAction]="dropDown"
+            [igxToggleOutlet]="outlet"
+            [overlaySettings]="overlaySettings">
+            palette
+        </igx-icon>
+    </button>
+    <!--<igniteui-theming-widget themeUrl="https://igniteuithemingwidget-staging.infragistics.com/api/taas"></igniteui-theming-widget>-->
+    <igx-drop-down #dropDown (onSelection)="onThemeSelectionHandler($event)" [width]="'250px'">
+        <igx-drop-down-item *ngFor="let theme of themes" [value]="theme.globalTheme">
+            <div class="itw-theme-item">
+                <div class="itw-theme-switch__colors">
+                    <span class="itw-theme-switch__color itw-theme-switch__color--primary"
+                          [style.background]='getCurrentPrimaryColor(theme.globalTheme)'></span>
+                    <span class="itw-theme-switch__color itw-theme-switch__color--secondary"
+                          [style.background]='getCurrentSecondaryColor(theme.globalTheme)'></span>
+                </div>
+                <span class="itw-theme-item-label">{{theme.name}}</span>
+            </div>
+        </igx-drop-down-item>
+    </igx-drop-down>
+    <div class="itw-overlayOutlet" igxOverlayOutlet #outlet="overlay-outlet"></div>
+</igx-navbar>

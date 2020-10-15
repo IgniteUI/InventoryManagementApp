@@ -1,0 +1,197 @@
+@import '../../layout-config';
+
+$badge-custom-theme: igx-badge-theme(
+    $background-color: $notification-bg-color,
+    $border-color: white,
+    $border-width: 2px,
+);
+//
+//$test: var(--igx-primary--500);
+//
+//$button-custom-theme: igx-button-theme(
+//    $icon-color: var(--igx-grays--900),
+//    $icon-background: var(--igx-grays--100),
+//    $icon-hover-background: $test,
+//    $icon-hover-color: var(--igx-primary--500),
+//    $icon-focus-background: var(--igx-primary--100),
+//    $icon-focus-color: var(--igx-primary--500),
+//);
+//
+//$navbar-custom-theme: igx-navbar-theme(
+//    $background: #fff,
+//    $disable-shadow: true
+//);
+
+:host {
+    ::ng-deep {
+        //@include igx-button($button-custom-theme);
+        //@include igx-navbar($navbar-custom-theme);
+        @include igx-badge($badge-custom-theme);
+
+        .igx-badge__circle {
+            max-width: rem(10px);
+            height: rem(10px);
+            min-width: rem(10px)
+        }
+    }
+
+    @include b(user-nav) {
+        @include e(notification) {
+            position: relative;
+        }
+
+        @include e(badge) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            max-width: rem(10px);
+            height: rem(10px);
+            min-width: rem(10px)
+        }
+
+        @include e(profile) {
+            cursor: pointer;
+
+            .igx-avatar {
+                margin-right: rem(8px);
+            }
+        }
+
+        @include e(profile-text) {
+            line-height: 1.2;
+            font-size: rem(14px);
+            span {
+                font-size: rem(12px)
+            }
+        }
+    }
+}
+
+
+.itw-grouped {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.itw-theme-switch__colors {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.itw-theme-switch__color {
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Colors */
+.itw-theme-switch__color--primary {
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    border: 1px solid #fff;
+}
+
+.itw-theme-prefix {
+    padding-right: 0rem !important;
+}
+
+.itw-theme-switch__color--secondary {
+    width: 17px;
+    height: 17px;
+    left: 13px;
+    bottom: 0;
+    border: 1px solid #fff;
+}
+
+.itw-theme-item {
+    display: flex;
+    white-space: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    height: 20px;
+    box-sizing: border-box;
+    font-family: 'aktiv-grotesk', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.74);
+    width: 100%;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    padding-left: 0.6rem;
+}
+
+.itw-theme-item:hover {
+    color: #333;
+    border-color: #333;
+}
+
+.itw-theme-dark-item--active:hover {
+    color: white !important;
+}
+
+.itw-theme-item--active {
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 0.3rem;
+}
+
+.itw-theme-dark-item--active {
+    color: white;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 0.3rem;
+    background: #333;
+}
+
+.itw-dark-theme__color--primary {
+    background: #09f;
+}
+
+.itw-dark-theme__color--secondary {
+    background: #72da67;
+}
+
+.itw-default-theme__color--primary {
+    background: #09f;
+}
+
+.itw-default-theme__color--secondary {
+    background: #e41c77;
+}
+
+.itw-fluent-theme__color--primary {
+    background: #2b579a;
+}
+
+.itw-fluent-theme__color--secondary {
+    background: #2b579a;
+}
+
+.itw-fluent-dark-theme__color--primary {
+    background: #217346;
+}
+
+.itw-fluent-dark-theme__color--secondary {
+    background: #217346;
+}
+
+.itw-bootstrap-theme__color--primary,
+.itw-bootstrap-dark-theme__color--primary {
+    background: #007bff;
+}
+
+.itw-bootstrap-theme__color--secondary,
+.itw-bootstrap-dark-theme__color--secondary {
+    background: #6c757d;
+}
+
+.itw-indigo-theme__color--primary,
+.itw-indigo-theme__color--secondary {
+    background: #3f51b5;
+}
+

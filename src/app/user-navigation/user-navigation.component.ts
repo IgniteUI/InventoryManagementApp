@@ -1,0 +1,200 @@
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+    ConnectedPositioningStrategy,
+    HorizontalAlignment,
+    ISelectionEventArgs,
+    NoOpScrollStrategy,
+    VerticalAlignment
+} from 'igniteui-angular';
+import { ITheme, IThemeStyleSelectedEventArgs } from '../common/interfaces';
+import {
+    MATERIAL_LIGHT,
+    MATERIAL_DARK,
+    FLUENT_LIGHT,
+    FLUENT_DARK,
+    BOOTSTRAP_LIGHT,
+    BOOTSTRAP_DARK,
+    INDIGO_LIGHT,
+    INDIGO_DARK
+} from '../common/default-themes-config';
+
+import { Theme } from '../common/theme';
+import { ThemeService } from '../services/theme.service';
+import { environment } from '../../environments/environment';
+
+@Component({
+    providers: [ThemeService],
+    selector: 'app-user-navigation',
+    templateUrl: './user-navigation.component.html',
+    styleUrls: ['./user-navigation.component.scss']
+})
+export class UserNavigationComponent implements OnInit {
+
+    @Input()
+    public theme: Theme;
+
+    public themes: Array<any> = [
+        {
+            globalTheme: 'igx-theme',
+            name: 'Material Light',
+            colors: MATERIAL_LIGHT.colors,
+            typeface: MATERIAL_LIGHT.typeface
+        },
+        {
+            globalTheme: 'igx-dark-theme',
+            name: 'Material Dark',
+            colors: MATERIAL_DARK.colors,
+            typeface: MATERIAL_DARK.typeface
+        },
+        {
+            globalTheme: 'igx-fluent-theme',
+            name: 'Fluent Light',
+            colors: FLUENT_LIGHT.colors,
+            typeface: FLUENT_LIGHT.typeface
+        },
+        {
+            globalTheme: 'igx-fluent-dark-theme',
+            name: 'Fluent Dark',
+            colors: FLUENT_DARK.colors,
+            typeface: FLUENT_DARK.typeface
+        },
+        {
+            globalTheme: 'igx-bootstrap-theme',
+            name: 'Bootstrap Light',
+            colors: BOOTSTRAP_LIGHT.colors,
+            typeface: BOOTSTRAP_LIGHT.typeface
+        },
+        {
+            globalTheme: 'igx-bootstrap-dark-theme',
+            name: 'Bootstrap Dark',
+            colors: BOOTSTRAP_DARK.colors,
+            typeface: BOOTSTRAP_DARK.typeface
+        },
+        {
+            globalTheme: 'igx-indigo-light-theme',
+            name: 'Indigo Light',
+            colors: INDIGO_LIGHT.colors,
+            typeface: INDIGO_LIGHT.typeface
+        },
+        {
+            globalTheme: 'igx-indigo-dark-theme',
+            name: 'Indigo Dark',
+            colors: INDIGO_DARK.colors,
+            typeface: INDIGO_DARK.typeface
+        }
+    ];
+
+    @Output()
+    public themeStyleSelected = new EventEmitter<IThemeStyleSelectedEventArgs>();
+
+    public isLoading = false;
+
+    protected defaultConfigs = new Map<string, any>([
+        ['igx-theme', MATERIAL_LIGHT],
+        ['igx-dark-theme', MATERIAL_DARK],
+        ['igx-fluent-theme', FLUENT_LIGHT],
+        ['igx-fluent-dark-theme', FLUENT_DARK],
+        ['igx-bootstrap-theme', BOOTSTRAP_LIGHT],
+        ['igx-bootstrap-dark-theme', BOOTSTRAP_DARK],
+        ['igx-indigo-light-theme', INDIGO_LIGHT],
+        ['igx-indigo-dark-theme', INDIGO_DARK]
+    ]);
+
+    public themeUrl = environment.themeStylesheetEndpoint;
+
+    @Output()
+    public themeChange = new EventEmitter<string>();
+
+
+    constructor(private themeService: ThemeService, private cdr: ChangeDetectorRef) {
+    }
+
+    public overlaySettings = {
+        positionStrategy: new ConnectedPositioningStrategy({
+            horizontalDirection: HorizontalAlignment.Left,
+            horizontalStartPoint: HorizontalAlignment.Right,
+            verticalStartPoint: VerticalAlignment.Bottom
+        }),
+        scrollStrategy: new NoOpScrollStrategy(),
+        closeOnOutsideClick: false
+    };
+
+    public onThemeSelectionHandler(event: ISelectionEventArgs): void {
+        const newSelection = event.newSelection.value;
+        this.themeStyleSelected.emit({newValue: newSelection});
+        this.resetTheme(newSelection);
+    }
+
+    ngOnInit(): void {
+    }
+
+    get globalTheme(): string {
+        return this.theme ? this.theme.globalTheme : '';
+    }
+
+    public getCurrentPrimaryColor(theme: string): string {
+        if (theme === '') {
+            return;
+        } else if (theme === this.globalTheme) {
+            return this.theme.colors.primary;
+        } else {
+            return this.themes.find(x => x.globalTheme === theme).colors.primary;
+        }
+    }
+
+    public getCurrentSecondaryColor(theme: string): string {
+        if (theme === '') {
+            return;
+        } else if (theme === this.globalTheme) {
+            return this.theme.colors.secondary;
+        } else {
+            return this.themes.find(x => x.globalTheme === theme).colors.secondary;
+        }
+    }
+
+    public resetTheme(theme: string): void {
+        this.setDefaultThemeConfig(theme);
+        this.getTheme();
+        this.cdr.detectChanges();
+    }
+
+    protected getDefaultThemeConfig(theme: string): Theme {
+        const config = this.defaultConfigs.get(theme);
+        return new Theme(theme,
+            Object.assign({}, config.colors),
+            config.typeface,
+            null,
+            null
+        );
+    }
+
+    protected setDefaultThemeConfig(theme: string): void {
+        this.theme = this.getDefaultThemeConfig(theme);
+    }
+
+    private getTheme(): void {
+        this.isLoading = true;
+        this.cdr.detectChanges();
+        this.themeService.getTheme(this.theme, this.themeUrl)
+            .subscribe({
+                next: (data) => {
+                    this.isLoading = false;
+                    this.themeChange.emit(data);
+                    this.cdr.detectChanges();
+
+                    // document.querySelectorAll('style').forEach(element => element.remove());
+
+                    const style = document.createElement('style');
+                    style.textContent = data;
+                    document.head.insertBefore(style, document.head.lastElementChild);
+                },
+                error: () => {
+                    this.isLoading = false;
+                    this.cdr.detectChanges();
+                    if (!this.themeUrl) {
+                        throw new Error('Please set \'theme-url\' property in order for the widget to get new theme styles!');
+                    }
+                }
+            });
+    }
+}

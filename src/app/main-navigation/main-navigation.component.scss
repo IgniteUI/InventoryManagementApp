@@ -38,6 +38,7 @@
 @include b(logo) {
     min-height: 56px;
     margin-top: 0 !important;
+    cursor: default;
 
     @include e(image) {
         width: rem(130px);
