@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import {
     ConnectedPositioningStrategy,
     HorizontalAlignment,
+    IgxDropDownComponent,
     ISelectionEventArgs,
     NoOpScrollStrategy,
     VerticalAlignment
@@ -30,6 +31,7 @@ import { environment } from '../../environments/environment';
 })
 export class UserNavigationComponent implements OnInit {
 
+    @ViewChild('dropDown', { static: true }) public dropDown: IgxDropDownComponent;
     @Input()
     public theme: Theme;
 
@@ -125,6 +127,10 @@ export class UserNavigationComponent implements OnInit {
         this.resetTheme(newSelection);
     }
 
+    public onDropDownClosing(event: any): void {
+        event.cancel = this.isLoading ? true : false;
+    }
+
     ngOnInit(): void {
     }
 
@@ -180,6 +186,7 @@ export class UserNavigationComponent implements OnInit {
                 next: (data) => {
                     this.isLoading = false;
                     this.themeChange.emit(data);
+                    this.dropDown.close();
                     this.cdr.detectChanges();
 
                     // document.querySelectorAll('style').forEach(element => element.remove());

@@ -195,3 +195,19 @@ $badge-custom-theme: igx-badge-theme(
     background: #3f51b5;
 }
 
+.itw-loadingOverlay {
+    position: absolute;
+    position: -ms-device-fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.38);
+  }
+  
+  .itw-loader {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+  }

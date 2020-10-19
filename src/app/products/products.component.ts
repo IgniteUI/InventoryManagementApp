@@ -3,6 +3,7 @@ import { PRODUCTS } from './localData';
 import { Product } from './product';
 import {
     IgxActionStripComponent,
+    IgxCheckboxComponent,
     IgxDialogComponent,
     IgxGridComponent,
     IgxGridTransaction,
@@ -52,6 +53,7 @@ export class ProductsComponent implements OnInit {
     public dialog: IgxDialogComponent;
     @ViewChild('toast', {read: IgxToastComponent, static: false})
     public toast: IgxToastComponent;
+    @ViewChild('checkbox', { static: true }) public checkbox: IgxCheckboxComponent;
     public data: any[];
     public product;
     public numSummary = NumberSummary;
@@ -77,9 +79,9 @@ export class ProductsComponent implements OnInit {
             this.transactionsData = this.grid.transactions.getAggregatedChanges(true);
         });
         this.product = new Product();
-        this.grid.summaryCalculationMode = GridSummaryCalculationMode.childLevelsOnly;
+        this.grid.summaryCalculationMode = GridSummaryCalculationMode.rootLevelOnly;
         this.grid.summaryPosition = GridSummaryPosition.top;
-        this.grid.showSummaryOnCollapse = true;
+        this.grid.showSummaryOnCollapse = false;
     }
 
     onMouseOver(event, grid, actionStrip): void {
@@ -169,5 +171,15 @@ export class ProductsComponent implements OnInit {
     public filterLowInventory(): void {
         // this.grid.clearFilter();
         // this.grid.filter("UnitsInStock", 13, IgxNumberFilteringOperand.instance().condition('lessThan'));
+    }
+
+    public toggleAll() {
+        if (!this.checkbox.checked) {
+            this.checkbox.checked = true;
+            this.grid.selectAllRows(true);
+        } else if (this.checkbox.checked) {
+            this.checkbox.checked = false;
+            this.grid.deselectAllRows(true);
+        }
     }
 }
