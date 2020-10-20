@@ -189,7 +189,8 @@ export class UserNavigationComponent implements OnInit {
                     this.dropDown.close();
                     this.cdr.detectChanges();
 
-                    // document.querySelectorAll('style').forEach(element => element.remove());
+                    //Set body's class attribute
+                    document.body.setAttribute('class', this.theme.globalTheme);
 
                     const style = document.createElement('style');
                     style.textContent = data;
