@@ -78,25 +78,6 @@
                     [summaries]="numSummary" width="10%"></igx-column>
         <igx-column field="commited" header="Commited" dataType="number" [groupable]="true" [hasSummary]="true"
                     [summaries]="numSummary" width="10%"></igx-column>
-
-        <ng-template igxGroupByRow let-groupRow>
-            <igx-checkbox #checkbox class="row-selector-checkbox"
-                [checked]="groupRow.records.length > 0"
-                [readonly]="false"
-                (click)="toggleAll()"
-                disableRipple="true" [disableTransitions]="grid.disableTransitions">
-            </igx-checkbox>
-            <div class="group-label">
-                <igx-icon fontSet="material" class="group-label__icon">group_work</igx-icon>
-                <span class="group-label__column-name">
-                {{ groupRow.column.header  }}:
-                </span>
-                <span class="group-label__text">
-                    {{ groupRow.value }}
-                </span>
-                <igx-badge [value]="groupRow.records.length" class='group-label__count-badge'></igx-badge>
-            </div>
-        </ng-template>
         <igx-action-strip #actionstrip>
             <igx-grid-pinning-actions></igx-grid-pinning-actions>
             <igx-grid-editing-actions [addRow]="true"></igx-grid-editing-actions>
