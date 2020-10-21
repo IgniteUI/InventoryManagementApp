@@ -6,6 +6,32 @@ $page-gap: $gap;
 $grid-gap: $gap;
 $drawer-width: rem(228px);
 
-$notification-bg-color: #f2591c;
-$logo-graphic-color: #f2591c;
-$logo-text-color: var(--igx-navdrawer-item-active-text-color);
+$danger-color: var(--igx-error-500);
+$success-color: var(--igx-success-500);
+$warn-color: var(--igx-warn-500);
+$logo-graphic-color: $warn-color;
+$logo-text-color: currentColor;
+
+$card-min-width: rem(320px);
+
+.danger-color {
+    color: $danger-color
+}
+
+.warn-color {
+    color: $success-color
+}
+
+.success-color {
+    color: $warn-color
+}
+
+
+// Mixins
+
+@mixin ellipsis(){
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,23 +1,98 @@
-<div class="content">
-  <h1 class="content__header content__subject">Welcome to Ignite UI for Angular!</h1>
-  <h4 class="content__subject">50+ Material-based UI Components</h4>
-  <img src="../../assets/indigo-design.svg" class="content__image">
-  <p class='igx-typography__subtitle-1'>Discover more at</p>
-  <p>
-    <a href='http://www.infragistics.com/products/ignite-ui-angular' target="_blank" class='content__link igx-typography__body-2'>
-      http://www.infragistics.com/products/ignite-ui-angular</a>
-  </p>
-  <p>
-    <a href="http://www.infragistics.com/products/indigo-design" target="_blank" class='content__link igx-typography__body-2'>
-      http://www.infragistics.com/products/indigo-design
-    </a></p>
-  <p class='igx-typography__subtitle-1'>We are also on GitHub</p>
-  <p class="content__container--wide">
-    <a href="https://github.com/IgniteUI/igniteui-angular" target="_blank" class="content__link--github igx-typography__body-2">
-      <span class="content__link-image"></span>Ignite UI for Angular
-    </a>
-    <a href="https://github.com/IgniteUI/igniteui-cli" target="_blank" class="content__link--github igx-typography__body-2">
-      <span class="content__link-image"></span>Ignite UI CLI
-    </a>
-  </p>
-</div>
+<section class="section">
+    <header class="section__header">
+        <h1>Order stats</h1>
+    </header>
+    <div class="order-stats">
+        <div class="order-stats__item">
+            <igx-icon class="order-stats__icon" fontSet="imx-icons" name="discount"></igx-icon>
+            <div class="order-stats__item-inner">
+                <span class="order-stats__label">
+                    Today's sale
+                </span>
+                <div class="order-stats__numbers">
+                    <span>$120, 510</span>
+                    <span class="order-stats__numbers-percent">
+                        <igx-icon class="order-stats__numbers-icon success-color">arrow_upward</igx-icon>
+                        15%
+                    </span>
+                </div>
+            </div>
+        </div>
+        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>
+        <div class="order-stats__item">
+            <igx-icon class="order-stats__icon" fontSet="imx-icons" name="bill-paid"></igx-icon>
+            <div class="order-stats__item-inner">
+                <span class="order-stats__label">
+                    Today's total orders
+                </span>
+                <div class="order-stats__numbers">
+                    <span>$120, 510</span>
+                    <span class="order-stats__numbers-percent">
+                        <igx-icon class="order-stats__numbers-icon danger-color">arrow_downward</igx-icon>
+                        15%
+                    </span>
+                </div>
+            </div>
+        </div>
+        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>
+        <div class="order-stats__item">
+            <igx-icon class="order-stats__icon" fontSet="imx-icons" name="money-bag"></igx-icon>
+            <div class="order-stats__item-inner">
+                <span class="order-stats__label">
+                    Today's revenue
+                </span>
+                <div class="order-stats__numbers">
+                    <span>$120, 510</span>
+                    <span class="order-stats__numbers-percent">
+                        <igx-icon class="order-stats__numbers-icon danger-color">arrow_downward</igx-icon>
+                        15%
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<igx-divider></igx-divider>
+<section class="section">
+    <header class="section__header">
+        <h1>Order stats</h1>
+        <div class="section__header-actions">
+            <button igxButton="outlined">1D</button>
+            <button igxButton="outlined">1W</button>
+            <button igxButton="outlined">1M</button>
+            <button igxButton="outlined">1Y</button>
+        </div>
+    </header>
+    <div class="section__row">
+        <ng-container *ngFor="let category of category">
+            <article class="section__col">
+                <header class="section__header">
+                    <h1>{{category.name}}</h1>
+                </header>
+                <igx-carousel  class="carousel" [loop]="false">
+                    <igx-slide *ngFor="let card of category.products" class="carousel__slide">
+                        <igx-card class="carousel__card"type="outlined">
+                            <igx-card-media height="196px">
+                                <img [src]="card.imageURL" alt="">
+                            </igx-card-media>
+
+                            <igx-card-header>
+                                <h3 igxCardHeaderTitle>{{card.title}}</h3>
+                                <h5 igxCardHeaderSubtitle>
+                                    <span>Total </span>
+                                    <span class="carousel__card-total-earned">{{card.totalEarned}}</span>
+                                    <igx-divider class="carousel__card-divider" [vertical]="true"></igx-divider>
+                                    <span class="carousel__card-sold-pieces">{{card.soldPieces}} </span>
+                                    pcs
+                                </h5>
+                            </igx-card-header>
+                        </igx-card>
+                    </igx-slide>
+                    <ng-template igxCarouselIndicator></ng-template>
+                </igx-carousel>
+            </article>
+        </ng-container>
+    </div>
+</section>
+
+

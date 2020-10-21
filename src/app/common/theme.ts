@@ -58,7 +58,7 @@ export class Theme implements ITheme {
         return `${this.nonMaterialKey || 'default'}-type-scale`;
     }
 
-    generatePalette() {
+    generatePalette(): string {
         return `igx-palette(
     $primary: ${this.colors.primary},
     $secondary: ${this.colors.secondary},
@@ -71,7 +71,7 @@ export class Theme implements ITheme {
 )`;
     }
 
-    generateThemeContent() {
+    generateThemeContent(): string {
         return `@import '~igniteui-angular/lib/core/styles/themes/index';
 @include igx-core();
 $custom-palette: ${this.generatePalette()};

@@ -6,6 +6,9 @@
 @include igx-core();
 @include igx-indigo-light-theme($light-indigo-palette);
 
+// Generate css variables from given palette.
+@include igx-palette-vars($light-indigo-palette, $contrast: true);
+
 html, body {
   height: 100%;
   overflow: hidden;

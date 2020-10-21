@@ -13,7 +13,7 @@ import {
     IgxInputGroupModule,
     IgxToastModule,
     IgxComboModule,
-    IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule
+    IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule, IgxCarouselModule, IgxCardModule
 } from 'igniteui-angular';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
@@ -42,7 +42,9 @@ import { UserNavigationComponent } from './user-navigation/user-navigation.compo
         IgxNavbarModule,
         IgxTooltipModule,
         IgxAvatarModule,
-        IgxLayoutModule
+        IgxLayoutModule,
+        IgxCarouselModule,
+        IgxCardModule
     ],
   providers: [],
   bootstrap: [AppComponent]
