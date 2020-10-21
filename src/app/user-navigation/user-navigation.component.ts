@@ -132,6 +132,8 @@ export class UserNavigationComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.setDefaultThemeConfig('igx-indigo-light-theme');
+        document.body.classList.add(this.theme.globalTheme);
     }
 
     get globalTheme(): string {
@@ -190,8 +192,12 @@ export class UserNavigationComponent implements OnInit {
                     this.cdr.detectChanges();
 
                     //Set body's class attribute
-                    document.body.setAttribute('class', this.theme.globalTheme);
+                    let bodyClasses = document.body.classList;
+                    bodyClasses.forEach(el => { if(el.startsWith('igx') && el.includes('theme')) {
+                        bodyClasses.remove(el)} });
+                    bodyClasses.add(this.theme.globalTheme);
 
+                    //document.querySelectorAll('style').forEach(element => element.remove());
                     const style = document.createElement('style');
                     style.textContent = data;
                     document.head.insertBefore(style, document.head.lastElementChild);
