@@ -145,6 +145,16 @@
             height: rem(18px);
         }
     }
+
+    .chart {
+        height: 100%;
+        min-width: 500px;
+    }
+
+    .legend{
+        height: 100%;
+        min-width: 100px;
+    }
 }
 
 

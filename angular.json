@@ -4,15 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "inventorymanagementapp": {
-    "projectType": "application",
-    "schematics": {
-      "@schematics/angular:component": {
-      "style": "scss"
-      }
-    },
-    "root": "",
-    "sourceRoot": "src",
-    "prefix": "app",
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -30,11 +30,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": ["./node_modules/hammerjs/hammer.min.js"]
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "es5": {
-                "tsConfig": "tsconfig-es5.app.json"
+              "tsConfig": "tsconfig-es5.app.json"
             },
             "production": {
               "fileReplacements": [
@@ -76,7 +78,7 @@
               "browserTarget": "inventorymanagementapp:build:production"
             },
             "es5": {
-                "browserTarget": "inventorymanagementapp:build:es5"
+              "browserTarget": "inventorymanagementapp:build:es5"
             }
           }
         },
@@ -96,7 +98,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": ["./node_modules/hammerjs/hammer.min.js"],
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -131,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "inventorymanagementapp"
+  "defaultProject": "inventorymanagementapp",
+  "cli": {
+    "analytics": false
+  }
 }

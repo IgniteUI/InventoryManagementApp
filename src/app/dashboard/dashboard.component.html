@@ -95,4 +95,63 @@
     </div>
 </section>
 
+<section>
+  <div class="pie-chart">
+    <div clas="chart">
+      <igx-item-legend #legend height="100px" width="100px">
+      </igx-item-legend>
 
+      <igx-pie-chart
+              [dataSource]="pieChartData"
+              width="300px"
+              height="300px"
+              valueMemberPath="Sale"
+              labelMemberPath="Sale"
+              legendLabelMemberPath="City"
+              [legend]="legend">
+      </igx-pie-chart>
+    </div>
+  </div>
+  <div class="data-chart">
+    <div class="chart">
+      <!-- <igx-data-chart #chart isHorizontalZoomEnabled="true" isVerticalZoomEnabled="true" width="500px"
+          height="300px" [dataSource]="dataChart">
+          <igx-numeric-x-axis #xAxis>
+          </igx-numeric-x-axis>
+          <igx-category-y-axis gap="1" label="Chanel"#yAxis>
+          </igx-category-y-axis>
+
+          <igx-bar-series verticalLineVisibility="collapsed" valueMemberPath="Orders" [xAxis]="xAxis" [yAxis]="yAxis">
+          </igx-bar-series>
+      </igx-data-chart> -->
+      <div *ngFor="let lg of channelData">
+        <div>{{lg.Channel}}</div>
+        <igx-linear-gauge
+                width="700px"
+                height="30px"
+                tickStrokeThickness="0"
+                maximumValue="100"
+                fontBrush="white"
+                minorTickStrokeThickness="0"
+                labelInterval="0">
+          <igx-linear-graph-range brush="green"
+                                  startValue=0 [endValue]="lg.Orders">
+          </igx-linear-graph-range>
+        </igx-linear-gauge>
+        <span>{{lg.Orders}}%</span>
+      </div>
+    </div>
+  </div>
+  <div class="data-chart">
+    <div>
+      <span>🟩Approved</span>
+      <span>🟪Canceled</span>
+    </div>
+    <div class="chart">
+      <igx-category-chart height="300px" width="600px"
+                          [dataSource]="orderStatus"
+                          chartType="Column">
+      </igx-category-chart>
+    </div>
+  </div>
+</section>
