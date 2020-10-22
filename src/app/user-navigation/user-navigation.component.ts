@@ -194,11 +194,13 @@ export class UserNavigationComponent implements OnInit {
                     //Set body's class attribute
                     let bodyClasses = document.body.classList;
                     bodyClasses.forEach(el => { if(el.startsWith('igx') && el.includes('theme')) {
-                        bodyClasses.remove(el)} });
+                        bodyClasses.remove(el)}});
                     bodyClasses.add(this.theme.globalTheme);
 
-                    //document.querySelectorAll('style').forEach(element => element.remove());
+                    document.querySelectorAll('style').forEach(element => { if(element.getAttribute('id') === "igniteui-theme") {
+                        element.remove()}});
                     const style = document.createElement('style');
+                    style.setAttribute('id','igniteui-theme');
                     style.textContent = data;
                     document.head.insertBefore(style, document.head.lastElementChild);
                 },
