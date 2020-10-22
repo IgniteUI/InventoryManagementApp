@@ -43,3 +43,10 @@ export interface ITheme {
     roundness?: number;
     elevation?: boolean;
 }
+
+export interface IcardData {
+    imageURL: string;
+    title: string;
+    totalEarned: number;
+    soldPieces: number;
+}

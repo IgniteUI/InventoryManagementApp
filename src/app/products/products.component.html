@@ -87,10 +87,10 @@
 
 <igx-toast #toast [autoHide]="true" [position]="position"></igx-toast>
 
-<igx-dialog #dialogAdd title="Add New Product" [rightButtonLabel]="'Add Product'" [leftButtonLabel]="'Cancel'"
+<igx-dialog class="add-product-dialog" #dialogAdd title="Add New Product" [rightButtonLabel]="'Add Product'" [leftButtonLabel]="'Cancel'"
             (onLeftButtonSelect)="cancel()" (onRightButtonSelect)="addProduct()">
     <div class="dialogNewRecord">
-        <igx-input-group type="border">
+        <igx-input-group type="box">
             <label igxLabel for="product">Product Title</label>
             <input igxInput id="product" type="text" [(ngModel)]="product.Product"/>
         </igx-input-group>

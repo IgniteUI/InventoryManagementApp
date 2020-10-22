@@ -1,68 +1,234 @@
-@import '~igniteui-angular/lib/core/styles/themes/utilities';
+@import '../../layout-config';
 
-%content-display {
-    width: 100%;
+:host {
     display: flex;
-    text-align: center;
-    flex-flow: column nowrap;
-    justify-content: stretch;
-    align-items: center;
-    padding: 40px 24px 40px 24px;
-    overflow: inherit;
-}
+    flex-direction: column;
 
-@include b(content) {
-    @extend %content-display;
+    @include b(section) {
+        padding: $page-gap 0;
 
-    p {
-        margin: 0px 0px 8px 0px;
+        &:first-of-type {
+            padding-top: 0;
+        }
 
-        &:nth-last-child(2) {
-            padding-top: 16px;
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+
+        @include e(header) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            margin-bottom: rem(16px);
+
+            span {
+                font-size: rem(24px);
+                font-weight: 500;
+                letter-spacing: rem(0.5px);
+                margin: 0;
+                line-height: normal;
+                @include ellipsis();
+            }
+        }
+
+        @include e(header, $m: small) {
+            margin-bottom: rem(8px);
+
+            span {
+                font-size: rem(16px);
+                letter-spacing: rem(1px);
+            }
+        }
+
+        @include e(header-actions) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            > * {
+                margin-left: rem(8px);
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include e(row) {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            > * {
+                margin-left: $grid-gap;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include e(row, $m: space) {
+            justify-content: space-between;
+        }
+
+        @include e(col) {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
     }
 
-    @include e(header) {
-        color: igx-color($default-palette, 'primary');
-    }
-
-    @include e(subject) {
-        margin-bottom: 16px;
-    }
-
-    @include e(container, $m: wide) {
+    @include b(order-stats) {
         display: flex;
-        flex-flow: row;
-        justify-content: center;
-    }
-
-    @include e(link, $m: github) {
-        position: relative;
-        display: flex;
-        flex-flow: row;
+        flex-wrap: wrap;
         align-items: center;
+        padding-top: $grid-gap / 2;
 
-        &:not(:first-child) {
-            margin-left: 24px;
-        } 
+        @include e(icon) {
+            font-size: rem(48px);
+            height: rem(48px);
+            width: rem(48px);
+            color: var(--igx-primary-500);
+            margin-right: rem(8px);
+        }
 
+        @include e(divider) {
+            min-width: 1px;
+            height: rem(56px);
+            display: inline-flex;
+            margin: 0 rem(16px) !important;
+        }
 
-        &::before {
-            position: relative;
-            display: block;
-            content: '';
-            min-width: 24px;
-            min-height: 24px;
-            background-image: url('../../assets/GitHub/github.svg');
-            background-size: 24px 24px;
-            background-repeat: no-repeat;
-            margin-right: 8px;
+        @include e(item) {
+            display: flex;
+            align-items: center;
+            padding-bottom: $grid-gap / 2;
+        }
+
+        @include e(label) {
+            font-size: rem(16px);
+        }
+
+        @include e(numbers) {
+            display: flex;
+            align-items: flex-start;
+            font-size: rem(32px);
+            line-height: 1;
+        }
+
+        @include e(inner) {
+            line-height: normal;
+        }
+
+        @include e(numbers-percent) {
+            margin-left: rem(8px);
+            display: flex;
+            align-items: center;
+            font-size: rem(12px);
+            line-height: 1;
+        }
+
+        @include e(numbers-icon) {
+            font-size: rem(18px);
+            width: rem(18px);
+            height: rem(18px);
         }
     }
-    
-    @include e(image) {
-        margin-bottom: 48px;
-        max-height: 480px;
-        max-width: 100%;
+
+    @include b(carousel) {
+        :focus {
+            outline: none;
+        }
+
+        @include e(slide) {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include e(card) {
+            width: 100% !important;
+            height: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        @include e(card-divider) {
+            height: rem(10px);
+            width: rem(2px);
+            margin: 0 rem(4px);
+        }
+
+        @include e(card-total-earned) {
+            color: var(--igx-warn-500);
+        }
+
+        .igx-card__media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    @include b(chart) {
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        min-width: rem(300px);
+        min-height: rem(262px);
+        padding: $grid-gap / 2;
+
+        @include e(legend) {
+            display:flex;
+            align-items: center;
+        }
+
+        @include e(legend-item) {
+            display: flex;
+            align-items: center;
+
+            span {
+                margin-right: rem(4px);
+            }
+
+            &:last-of-type {
+                margin-left: rem(8px)
+            }
+        }
+
+        @include e(col) {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+        @include e(row) {
+            display: flex;
+            width: 100%;
+        }
+
+        @include m(pie) {
+            flex-direction: row-reverse !important;
+        }
+
+        .ig-chart-legend-item {
+            display: flex;
+            align-items: center;
+            > * {
+                display: flex;
+            }
+            padding-bottom: rem(8px);
+        }
+
+        .ig-chart-legend-item-badge {
+            margin-right: rem(4px);
+        }
+
+        .igx-pie-chart {
+            margin-right: rem(8px);
+        }
     }
 }
+
+

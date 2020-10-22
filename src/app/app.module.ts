@@ -13,10 +13,23 @@ import {
     IgxInputGroupModule,
     IgxToastModule,
     IgxComboModule,
-    IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule
+    IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule, IgxCarouselModule, IgxCardModule
 } from 'igniteui-angular';
+import { IgxBarSeriesModule,
+  IgxCategoryChartModule,
+  IgxCategoryXAxisModule,
+  IgxCategoryYAxisModule,
+  IgxColumnSeriesModule,
+  IgxDataChartCategoryModule,
+  IgxDataChartCoreModule,
+  IgxItemLegendModule,
+  IgxLegendModule,
+  IgxNumericXAxisModule,
+  IgxNumericYAxisModule,
+  IgxPieChartModule } from 'igniteui-angular-charts';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
+import { IgxLinearGaugeModule } from 'igniteui-angular-gauges';
 
 @NgModule({
   declarations: [
@@ -42,7 +55,22 @@ import { UserNavigationComponent } from './user-navigation/user-navigation.compo
         IgxNavbarModule,
         IgxTooltipModule,
         IgxAvatarModule,
-        IgxLayoutModule
+        IgxLayoutModule,
+        IgxCarouselModule,
+        IgxCardModule,
+        IgxPieChartModule,
+        IgxLegendModule,
+        IgxItemLegendModule,
+        IgxDataChartCoreModule,
+        IgxDataChartCategoryModule,
+        IgxNumericXAxisModule,
+        IgxNumericYAxisModule,
+        IgxCategoryXAxisModule,
+        IgxCategoryYAxisModule,
+        IgxBarSeriesModule,
+        IgxColumnSeriesModule,
+        IgxCategoryChartModule,
+        IgxLinearGaugeModule
     ],
   providers: [],
   bootstrap: [AppComponent]
