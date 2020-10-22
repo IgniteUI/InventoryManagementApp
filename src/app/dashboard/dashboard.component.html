@@ -141,18 +141,22 @@
                     <div *ngFor="let lg of channelData">
                         <div>{{lg.Channel}}</div>
                         <div class="chart__row">
-                            <igx-linear-gauge
-                                    height="30px"
-                                    tickStrokeThickness="0"
-                                    maximumValue="100"
-                                    fontBrush="white"
-                                    minorTickStrokeThickness="0"
-                                    labelInterval="0">
+                          <igx-linear-gauge
+                                width="700px"
+                                height="30px"
+                                tickStrokeThickness="0"
+                                maximumValue="100"
+                                fontBrush="white"
+                                minorTickStrokeThickness="0"
+                                labelsPreTerminal=200
+                                scaleBrush="green"
+                                backingBrush="#00000"
+                                labelInterval="0">
                                 <igx-linear-graph-range brush="green"
-                                                        startValue=0 [endValue]="lg.Orders">
+                                  startValue=0 [endValue]="lg.Orders">
                                 </igx-linear-graph-range>
-                            </igx-linear-gauge>
-                            <span>{{lg.Orders}}%</span>
+                          </igx-linear-gauge>
+                          <span>{{lg.Orders}}%</span>
                         </div>
                     </div>
                 </div>
@@ -173,8 +177,22 @@
                     <span class="chart__legend-item"><span>🟪</span> Canceled</span>
                 </div>
                 <div>
-                    <igx-category-chart height="200px" width="300px" [dataSource]="orderStatus" chartType="Column">
-                    </igx-category-chart>
+                  <igx-data-chart height="300px" width="600px"
+                      [dataSource]="orderStatus"
+                      chartType="Column">
+                    <igx-category-x-axis #xAxis name="xAxis" majorStroke="white" minorStroke="white" label="Year" >
+                    </igx-category-x-axis>
+                    <igx-numeric-y-axis #yAxis name="yAxis" majorStroke="gray"
+                      majorStrokeThickness=1>
+                    </igx-numeric-y-axis>
+
+                    <igx-column-series name="series1" title="approved" [xAxis]="xAxis" [yAxis]="yAxis" valueMemberPath="approved"
+                      isTransitionInEnabled=true>
+                    </igx-column-series>
+                    <igx-column-series name="series2" title="canceled" [xAxis]="xAxis" [yAxis]="yAxis" valueMemberPath="canceled"
+                        isTransitionInEnabled=true>
+                    </igx-column-series>
+                </igx-data-chart>
                 </div>
             </igx-card>
         </article>
