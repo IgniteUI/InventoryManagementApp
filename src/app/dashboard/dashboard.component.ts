@@ -103,22 +103,12 @@ export class DashboardComponent {
     { Channel: 'Facebook', Orders: 25},
   ];
 
-  public approved = [
-    { Year: 'Sep 30', approved: 220 },
-    { Year: 'Oct 1', approved: 520 },
-    { Year: 'Oct 2', approved: 200 },
-    { Year: 'Oct 3', approved: 360 },
-    { Year: 'Oct 4', approved: 490 }
+  public orderStatus = [
+    { Year: 'Sep 30', approved: 220, canceled: 60 },
+    { Year: 'Oct 1', approved: 520, canceled: 80 },
+    { Year: 'Oct 2', approved: 200, canceled: 30 },
+    { Year: 'Oct 3', approved: 360, canceled: 100 },
+    { Year: 'Oct 4', approved: 490, canceled: 85 }
   ];
-
-  public canceled = [
-    { Year: 'Sep 30', canceled: 60 },
-    { Year: 'Oct 1', canceled: 80 },
-    { Year: 'Oct 2', canceled: 30 },
-    { Year: 'Oct 3', canceled: 100 },
-    { Year: 'Oct 4', canceled: 85 }
-  ];
-
-  public orderStatus = [ this.approved, this.canceled ];
 
 }
