@@ -4,6 +4,138 @@
     display: flex;
     flex-direction: column;
 
+    @include b(section) {
+        padding: $page-gap 0;
+
+        &:first-of-type {
+            padding-top: 0;
+        }
+
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+
+        @include e(header) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            margin-bottom: rem(16px);
+
+            span {
+                font-size: rem(24px);
+                font-weight: 500;
+                letter-spacing: rem(0.5px);
+                margin: 0;
+                line-height: normal;
+                @include ellipsis();
+            }
+        }
+
+        @include e(header, $m: small) {
+            margin-bottom: rem(8px);
+
+            span {
+                font-size: rem(16px);
+                letter-spacing: rem(1px);
+            }
+        }
+
+        @include e(header-actions) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            > * {
+                margin-left: rem(8px);
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include e(row) {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            > * {
+                margin-left: $grid-gap;
+
+                &:first-of-type {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        @include e(row, $m: space) {
+            justify-content: space-between;
+        }
+
+        @include e(col) {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+
+    @include b(order-stats) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding-top: $grid-gap / 2;
+
+        @include e(icon) {
+            font-size: rem(48px);
+            height: rem(48px);
+            width: rem(48px);
+            color: var(--igx-primary-500);
+            margin-right: rem(8px);
+        }
+
+        @include e(divider) {
+            min-width: 1px;
+            height: rem(56px);
+            display: inline-flex;
+            margin: 0 rem(16px) !important;
+        }
+
+        @include e(item) {
+            display: flex;
+            align-items: center;
+            padding-bottom: $grid-gap / 2;
+        }
+
+        @include e(label) {
+            font-size: rem(16px);
+        }
+
+        @include e(numbers) {
+            display: flex;
+            align-items: flex-start;
+            font-size: rem(32px);
+            line-height: 1;
+        }
+
+        @include e(inner) {
+            line-height: normal;
+        }
+
+        @include e(numbers-percent) {
+            margin-left: rem(8px);
+            display: flex;
+            align-items: center;
+            font-size: rem(12px);
+            line-height: 1;
+        }
+
+        @include e(numbers-icon) {
+            font-size: rem(18px);
+            width: rem(18px);
+            height: rem(18px);
+        }
+    }
+
     @include b(carousel) {
         :focus {
             outline: none;
@@ -40,120 +172,62 @@
         }
     }
 
-    @include b(section) {
-        padding: $page-gap 0;
+    @include b(chart) {
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        min-width: rem(300px);
+        min-height: rem(262px);
+        padding: $grid-gap / 2;
 
-        &:first-of-type {
-            padding-top: 0;
+        @include e(legend) {
+            display:flex;
+            align-items: center;
         }
 
-        @include e(header) {
-            display: flex;
-            justify-content: space-between;
-
-            margin-bottom: rem(18px);
-
-            h1 {
-                font-size: rem(24px);
-                margin: 0;
-                line-height: normal;
-                @include ellipsis();
-            }
-        }
-
-        @include e(header-actions) {
+        @include e(legend-item) {
             display: flex;
             align-items: center;
-            > * {
-                margin-left: rem(8px);
 
-                &:first-of-type {
-                    margin-left: 0;
-                }
+            span {
+                margin-right: rem(4px);
             }
-        }
 
-        @include e(row) {
-            display: flex;
-            align-items: center;
+            &:last-of-type {
+                margin-left: rem(8px)
+            }
         }
 
         @include e(col) {
             display: flex;
+            width: 100%;
             flex-direction: column;
-            flex: 1;
-
-            margin-left: rem(16px);
-
-            &:first-of-type {
-                margin-left: 0;
-            }
         }
-    }
+        @include e(row) {
+            display: flex;
+            width: 100%;
+        }
 
-    @include b(order-stats) {
-        display: flex;
-        align-items: center;
-        padding: ($grid-gap / 2) 0;
+        @include m(pie) {
+            flex-direction: row-reverse !important;
+        }
 
-        @include e(icon) {
-            font-size: rem(48px);
-            height: rem(48px);
-            width: rem(48px);
-            color: var(--igx-primary-500);
+        .ig-chart-legend-item {
+            display: flex;
+            align-items: center;
+            > * {
+                display: flex;
+            }
+            padding-bottom: rem(8px);
+        }
+
+        .ig-chart-legend-item-badge {
+            margin-right: rem(4px);
+        }
+
+        .igx-pie-chart {
             margin-right: rem(8px);
         }
-
-        @include e(divider) {
-            min-width: 1px;
-            height: rem(56px);
-            display: inline-flex;
-            margin: 0 rem(16px) !important;
-        }
-
-        @include e(item) {
-            display: flex;
-            align-items: center;
-        }
-
-        @include e(label) {
-            font-size: rem(16px);
-        }
-
-        @include e(numbers) {
-            display: flex;
-            align-items: flex-start;
-            font-size: rem(32px);
-            line-height: 1;
-        }
-
-        @include e(inner) {
-            line-height: normal;
-        }
-
-        @include e(numbers-percent) {
-            margin-left: rem(8px);
-            display: flex;
-            align-items: center;
-            font-size: rem(12px);
-            line-height: 1;
-        }
-
-        @include e(numbers-icon) {
-            font-size: rem(18px);
-            width: rem(18px);
-            height: rem(18px);
-        }
-    }
-
-    .chart {
-        height: 100%;
-        min-width: 500px;
-    }
-
-    .legend{
-        height: 100%;
-        min-width: 100px;
     }
 }
 

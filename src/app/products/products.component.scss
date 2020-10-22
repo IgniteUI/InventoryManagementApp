@@ -11,13 +11,15 @@ igx-divider {
 }
 
 .filtering-buttons-row {
-  min-height: 50px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  margin-bottom: rem(16px)
 }
 
 .search-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   margin-bottom: $grid-gap;

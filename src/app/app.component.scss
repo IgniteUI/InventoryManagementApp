@@ -8,13 +8,16 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
+  overflow: hidden;
+  flex: 1;
 }
 
 @include b(main-content) {
-  grid-template-columns: 0.3fr 1fr;
-  grid-template-rows: 1fr;
-  padding: $page-gap;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding: $page-gap;
+  height: 100%;
 }
 

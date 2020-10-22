@@ -25,13 +25,3 @@ $card-min-width: rem(320px);
 .success-color {
     color: $warn-color
 }
-
-
-// Mixins
-
-@mixin ellipsis(){
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
