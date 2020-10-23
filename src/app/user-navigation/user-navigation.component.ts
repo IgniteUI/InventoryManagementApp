@@ -22,6 +22,7 @@ import {
 import { Theme } from '../common/theme';
 import { ThemeService } from '../services/theme.service';
 import { environment } from '../../environments/environment';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
     providers: [ThemeService],
@@ -34,6 +35,7 @@ export class UserNavigationComponent implements OnInit {
     @ViewChild('dropDown', { static: true }) public dropDown: IgxDropDownComponent;
     @Input()
     public theme: Theme;
+    public title = "Products";
 
     public themes: Array<any> = [
         {
@@ -108,8 +110,14 @@ export class UserNavigationComponent implements OnInit {
     public themeChange = new EventEmitter<string>();
 
 
-    constructor(private themeService: ThemeService, private cdr: ChangeDetectorRef) {
+    constructor(private router:  Router, private themeService: ThemeService, private cdr: ChangeDetectorRef) {
+        router.events.subscribe((event) => (event instanceof NavigationEnd) && this.handleRouteChange())
     }
+
+    private handleRouteChange() {
+        let routerPath = this.router.url.substring(1);
+        this.title = routerPath.charAt(0).toUpperCase() + routerPath.slice(1);
+      };
 
     public overlaySettings = {
         positionStrategy: new ConnectedPositioningStrategy({
