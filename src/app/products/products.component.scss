@@ -1,58 +1,70 @@
 @import '../../layout-config';
 
 :host {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 igx-divider {
-  min-height: 1px;
+    min-height: 1px;
 }
 
 .filtering-buttons-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: rem(16px)
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: $grid-gap / 3;
+
+    > * {
+        margin-bottom: $grid-gap / 4;
+    }
 }
 
 .search-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: $grid-gap;
-  margin-top: $grid-gap / 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $grid-gap / 2;
+    margin-top: $grid-gap / 1.5;
+
+    > * {
+        margin-bottom: $grid-gap / 2;
+    }
 }
 
 .search-row__input {
-  flex: 1;
-  max-width: rem(600px);
-  min-width: rem(250px)
+    flex: 1;
+    max-width: rem(600px);
+    min-width: rem(250px);
 }
 
+.filter-section {
+    display: flex;
+    flex-direction: column;
+}
 
 .grid-wrapper {
-  flex: 1;
+    flex: 1;
 }
 
 .row-selector-checkbox {
-  padding-left: 5px;
+    padding-left: 5px;
 }
 
 .group-label {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  line-height: rem(16px);
-  padding-left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    line-height: rem(16px);
+    padding-left: 16px;
 }
 
 .group-label__icon, .group-label__column-name, .group-label__text, .group-label__count-badge {
-  margin-right: 4px;
+    margin-right: 4px;
 }
 
 .dialogNewRecord {
-  padding: $page-gap
+    padding: $page-gap
 }

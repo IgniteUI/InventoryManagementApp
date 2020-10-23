@@ -1,6 +1,6 @@
 <section class="section">
     <header class="section__header">
-        <span>Order stats</span>
+        <span class="section__header-title">Order stats</span>
     </header>
     <div class="order-stats">
         <div class="order-stats__item">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>
+<!--        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>-->
         <div class="order-stats__item">
             <igx-icon class="order-stats__icon" fontSet="imx-icons" name="bill-paid"></igx-icon>
             <div class="order-stats__item-inner">
@@ -56,18 +56,18 @@
 <igx-divider></igx-divider>
 
 <section class="section">
-<!--    <header class="section__header">-->
-<!--        <span>Top selling products</span>-->
-<!--        <div class="section__header-actions">-->
-<!--            <button igxButton="outlined">1D</button>-->
-<!--            <button igxButton="outlined">1W</button>-->
-<!--            <button igxButton="outlined">1M</button>-->
-<!--            <button igxButton="outlined">1Y</button>-->
-<!--        </div>-->
-<!--    </header>-->
+    <header class="section__header">
+        <span class="section__header-title">Top sales by category</span>
+        <igx-buttongroup>
+            <button igxButton>1D</button>
+            <button igxButton>1W</button>
+            <button igxButton>1M</button>
+            <button igxButton>1Y</button>
+        </igx-buttongroup>
+    </header>
     <div class="grid-wrapper">
         <ng-container *ngFor="let category of category">
-            <article>
+            <article class="section__col">
                 <header class="section__header section__header--small">
                     <span>{{category.name}}</span>
                 </header>
@@ -99,7 +99,10 @@
 <igx-divider></igx-divider>
 
 <section class="section grid-wrapper grid-wrapper--fixed-height">
-    <article>
+    <article class="section__col">
+        <header class="section__header">
+            <span class="section__header-title">Top sales by category</span>
+        </header>
         <igx-card class="chart grid-wrapper__card--charts chart--pie" type="outlined">
             <igx-item-legend #legend></igx-item-legend>
             <igx-pie-chart
@@ -114,14 +117,15 @@
         </igx-card>
     </article>
     <article class="section__col">
-        <!--        <header class="section__header">-->
-        <!--            <span>Title</span>-->
-        <!--            <div class="section__header-actions">-->
-        <!--                <button igxButton="outlined">1D</button>-->
-        <!--                <button igxButton="outlined">1W</button>-->
-        <!--                <button igxButton="outlined">1M</button>-->
-        <!--            </div>-->
-        <!--        </header>-->
+        <header class="section__header">
+            <span class="section__header-title">Top sales by category</span>
+            <igx-buttongroup>
+                <button igxButton>1D</button>
+                <button igxButton>1W</button>
+                <button igxButton>1M</button>
+                <button igxButton>1Y</button>
+            </igx-buttongroup>
+        </header>
         <igx-card class="chart grid-wrapper__card--charts" type="outlined">
             <!-- <igx-data-chart #chart isHorizontalZoomEnabled="true" isVerticalZoomEnabled="true" width="500px"
                 height="300px" [dataSource]="dataChart">
@@ -139,14 +143,15 @@
                     <div class="chart__row">
                         <igx-linear-gauge
                                 width="100%"
-                                width="700px"height="30px"
+                                height="16px"
                                 tickStrokeThickness="0"
                                 maximumValue="100"
                                 fontBrush="white"
                                 minorTickStrokeThickness="0"
                                 labelsPreTerminal=200
                                 scaleBrush="green"
-                                backingBrush="#00000"labelInterval="0">
+                                backingBrush="#00000"
+                                labelInterval="0">
                             <igx-linear-graph-range brush="green"
                                                     startValue=0 [endValue]="lg.Orders">
                             </igx-linear-graph-range>
@@ -158,21 +163,22 @@
         </igx-card>
     </article>
     <article class="section__col">
-<!--        <header class="section__header">-->
-<!--            <span>Title</span>-->
-<!--            <div class="section__header-actions">-->
-<!--                <button igxButton="outlined">1D</button>-->
-<!--                <button igxButton="outlined">1W</button>-->
-<!--                <button igxButton="outlined">1M</button>-->
-<!--            </div>-->
-<!--        </header>-->
+        <header class="section__header">
+            <span class="section__header-title">Top sales by category</span>
+            <igx-buttongroup>
+                <button igxButton>1D</button>
+                <button igxButton>1W</button>
+                <button igxButton>1M</button>
+                <button igxButton>1Y</button>
+            </igx-buttongroup>
+        </header>
         <igx-card class="chart grid-wrapper__card--charts" type="outlined">
             <div class="chart__legend">
                 <span class="chart__legend-item"><span>🟩</span> Approved</span>
                 <span class="chart__legend-item"><span>🟪</span> Canceled</span>
             </div>
             <div>
-                <igx-data-chart height="300px" width="600px" [dataSource]="orderStatus" chartType="Column">
+                <igx-data-chart height="100%" width="280px" [dataSource]="orderStatus" chartType="Column">
                 <igx-category-x-axis #xAxis name="xAxis" majorStroke="white" minorStroke="white" label="Year" >
                     </igx-category-x-axis>
                     <igx-numeric-y-axis #yAxis name="yAxis" majorStroke="gray"
@@ -192,51 +198,49 @@
 </section>
 <igx-divider></igx-divider>
 
-<section class="section">
-    <div class="section__row section__row--space">
-        <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
-            <div class="card-stats-horizontal__media">
-                <igx-card-media>
-                    <igx-icon fontSet="imx-icons" name="gift"></igx-icon>
-                </igx-card-media>
-            </div>
-            <igx-card-header dir="ltr">
-                <h3 igxCardHeaderTitle>1190</h3>
-                <h5 igxCardHeaderSubtitle>To be packed</h5>
-            </igx-card-header>
-        </igx-card>
-        <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
-            <div class="card-stats-horizontal__media">
-                <igx-card-media>
-                    <igx-icon fontSet="imx-icons" name="drop-shipping"></igx-icon>
-                </igx-card-media>
-            </div>
-            <igx-card-header dir="ltr">
-                <h3 igxCardHeaderTitle>2312</h3>
-                <h5 igxCardHeaderSubtitle>to be shipped</h5>
-            </igx-card-header>
-        </igx-card>
-        <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
-            <div class="card-stats-horizontal__media">
-                <igx-card-media>
-                    <igx-icon fontSet="imx-icons" name="invoice"></igx-icon>
-                </igx-card-media>
-            </div>
-            <igx-card-header dir="ltr">
-                <h3 igxCardHeaderTitle>354</h3>
-                <h5 igxCardHeaderSubtitle>To be invoiced</h5>
-            </igx-card-header>
-        </igx-card>
-        <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
-            <div class="card-stats-horizontal__media">
-                <igx-card-media>
-                    <igx-icon fontSet="imx-icons" name="delivery"></igx-icon>
-                </igx-card-media>
-            </div>
-            <igx-card-header dir="ltr">
-                <h3 igxCardHeaderTitle>2120</h3>
-                <h5 igxCardHeaderSubtitle>To be delivered</h5>
-            </igx-card-header>
-        </igx-card>
-    </div>
+<section class="section grid-wrapper grid-wrapper--summary">
+    <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
+        <div class="card-stats-horizontal__media">
+            <igx-card-media>
+                <igx-icon fontSet="imx-icons" name="gift"></igx-icon>
+            </igx-card-media>
+        </div>
+        <igx-card-header dir="ltr">
+            <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>1190</h3>
+            <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be packed</h5>
+        </igx-card-header>
+    </igx-card>
+    <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
+        <div class="card-stats-horizontal__media">
+            <igx-card-media>
+                <igx-icon fontSet="imx-icons" name="drop-shipping"></igx-icon>
+            </igx-card-media>
+        </div>
+        <igx-card-header dir="ltr">
+            <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>2312</h3>
+            <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>to be shipped</h5>
+        </igx-card-header>
+    </igx-card>
+    <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
+        <div class="card-stats-horizontal__media">
+            <igx-card-media>
+                <igx-icon fontSet="imx-icons" name="invoice"></igx-icon>
+            </igx-card-media>
+        </div>
+        <igx-card-header dir="ltr">
+            <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>354</h3>
+            <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be invoiced</h5>
+        </igx-card-header>
+    </igx-card>
+    <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
+        <div class="card-stats-horizontal__media">
+            <igx-card-media>
+                <igx-icon fontSet="imx-icons" name="delivery"></igx-icon>
+            </igx-card-media>
+        </div>
+        <igx-card-header dir="ltr">
+            <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>2120</h3>
+            <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be delivered</h5>
+        </igx-card-header>
+    </igx-card>
 </section>
