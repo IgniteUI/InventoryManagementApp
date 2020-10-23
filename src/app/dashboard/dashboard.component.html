@@ -1,4 +1,3 @@
-<!-- Stats -->
 <section class="section">
     <header class="section__header">
         <span>Order stats</span>
@@ -19,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>
+<!--        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>-->
         <div class="order-stats__item">
             <igx-icon class="order-stats__icon" fontSet="imx-icons" name="bill-paid"></igx-icon>
             <div class="order-stats__item-inner">
@@ -35,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>
+<!--        <igx-divider class="order-stats__divider" [vertical]="true"></igx-divider>-->
         <div class="order-stats__item">
             <igx-icon class="order-stats__icon" fontSet="imx-icons" name="money-bag"></igx-icon>
             <div class="order-stats__item-inner">
@@ -53,28 +52,29 @@
         </div>
     </div>
 </section>
+
 <igx-divider></igx-divider>
-<!-- Carousels -->
+
 <section class="section">
-    <header class="section__header">
-        <span>Top selling products</span>
-        <div class="section__header-actions">
-            <button igxButton="outlined">1D</button>
-            <button igxButton="outlined">1W</button>
-            <button igxButton="outlined">1M</button>
-            <button igxButton="outlined">1Y</button>
-        </div>
-    </header>
-    <div class="section__row">
+<!--    <header class="section__header">-->
+<!--        <span>Top selling products</span>-->
+<!--        <div class="section__header-actions">-->
+<!--            <button igxButton="outlined">1D</button>-->
+<!--            <button igxButton="outlined">1W</button>-->
+<!--            <button igxButton="outlined">1M</button>-->
+<!--            <button igxButton="outlined">1Y</button>-->
+<!--        </div>-->
+<!--    </header>-->
+    <div class="grid-wrapper">
         <ng-container *ngFor="let category of category">
-            <article class="section__col">
+            <article>
                 <header class="section__header section__header--small">
                     <span>{{category.name}}</span>
                 </header>
                 <igx-carousel  class="carousel" [loop]="false">
                     <igx-slide *ngFor="let card of category.products" class="carousel__slide">
-                        <igx-card class="carousel__card" type="outlined">
-                            <igx-card-media>
+                        <igx-card class="grid-wrapper__card" type="outlined">
+                            <igx-card-media height="220px">
                                 <img [src]="card.imageURL" alt="">
                             </igx-card-media>
 
@@ -97,92 +97,88 @@
     </div>
 </section>
 <igx-divider></igx-divider>
-<!-- Charts-->
-<section class="section">
-    <div class="section__row">
-        <article class="section__col">
-            <header class="section__header">
-                <span>Title</span>
-                <div class="section__header-actions">
-                    <button igxButton="outlined">1D</button>
-                    <button igxButton="outlined">1W</button>
-                    <button igxButton="outlined">1M</button>
-                </div>
-            </header>
-            <igx-card class="chart chart--pie" type="outlined">
-                <igx-item-legend #legend></igx-item-legend>
-                <igx-pie-chart
-                        [dataSource]="pieChartData"
-                        width="200px"
-                        height="200px"
-                        valueMemberPath="Sale"
-                        labelMemberPath="Sale"
-                        legendLabelMemberPath="City"
-                        [legend]="legend">
-                </igx-pie-chart>
-            </igx-card>
-        </article>
-        <article class="section__col">
-            <header class="section__header">
-                <span>Title</span>
-            </header>
-            <igx-card class="chart" type="outlined">
-                <!-- <igx-data-chart #chart isHorizontalZoomEnabled="true" isVerticalZoomEnabled="true" width="500px"
-                    height="300px" [dataSource]="dataChart">
-                    <igx-numeric-x-axis #xAxis>
-                    </igx-numeric-x-axis>
-                    <igx-category-y-axis gap="1" label="Chanel"#yAxis>
-                    </igx-category-y-axis>
 
-                    <igx-bar-series verticalLineVisibility="collapsed" valueMemberPath="Orders" [xAxis]="xAxis" [yAxis]="yAxis">
-                    </igx-bar-series>
-                </igx-data-chart> -->
-                <div class="chart__col">
-                    <div *ngFor="let lg of channelData">
-                        <div>{{lg.Channel}}</div>
-                        <div class="chart__row">
-                            <igx-linear-gauge
-                                    height="30px"
-                                    tickStrokeThickness="0"
-                                    maximumValue="100"
-                                    fontBrush="white"
-                                    minorTickStrokeThickness="0"
-                                    labelInterval="0">
-                                <igx-linear-graph-range brush="green"
-                                                        startValue=0 [endValue]="lg.Orders">
-                                </igx-linear-graph-range>
-                            </igx-linear-gauge>
-                            <span>{{lg.Orders}}%</span>
-                        </div>
+<section class="section grid-wrapper grid-wrapper--fixed-height">
+    <article>
+        <igx-card class="chart grid-wrapper__card--charts chart--pie" type="outlined">
+            <igx-item-legend #legend></igx-item-legend>
+            <igx-pie-chart
+                    [dataSource]="pieChartData"
+                    width="200px"
+                    height="200px"
+                    valueMemberPath="Sale"
+                    labelMemberPath="Sale"
+                    legendLabelMemberPath="City"
+                    [legend]="legend">
+            </igx-pie-chart>
+        </igx-card>
+    </article>
+    <article class="section__col">
+        <!--        <header class="section__header">-->
+        <!--            <span>Title</span>-->
+        <!--            <div class="section__header-actions">-->
+        <!--                <button igxButton="outlined">1D</button>-->
+        <!--                <button igxButton="outlined">1W</button>-->
+        <!--                <button igxButton="outlined">1M</button>-->
+        <!--            </div>-->
+        <!--        </header>-->
+        <igx-card class="chart grid-wrapper__card--charts" type="outlined">
+            <!-- <igx-data-chart #chart isHorizontalZoomEnabled="true" isVerticalZoomEnabled="true" width="500px"
+                height="300px" [dataSource]="dataChart">
+                <igx-numeric-x-axis #xAxis>
+                </igx-numeric-x-axis>
+                <igx-category-y-axis gap="1" label="Chanel"#yAxis>
+                </igx-category-y-axis>
+
+                <igx-bar-series verticalLineVisibility="collapsed" valueMemberPath="Orders" [xAxis]="xAxis" [yAxis]="yAxis">
+                </igx-bar-series>
+            </igx-data-chart> -->
+            <div class="chart__col">
+                <div *ngFor="let lg of channelData">
+                    <div class="chart__linear-label">{{lg.Channel}}</div>
+                    <div class="chart__row">
+                        <igx-linear-gauge
+                                width="100%"
+                                height="30px"
+                                tickStrokeThickness="0"
+                                maximumValue="100"
+                                fontBrush="white"
+                                minorTickStrokeThickness="0"
+                                labelInterval="0">
+                            <igx-linear-graph-range brush="green"
+                                                    startValue=0 [endValue]="lg.Orders">
+                            </igx-linear-graph-range>
+                        </igx-linear-gauge>
+                        <span class="chart__linear-label">{{lg.Orders}}%</span>
                     </div>
                 </div>
-            </igx-card>
-        </article>
-        <article class="section__col">
-            <header class="section__header">
-                <span>Title</span>
-                <div class="section__header-actions">
-                    <button igxButton="outlined">1D</button>
-                    <button igxButton="outlined">1W</button>
-                    <button igxButton="outlined">1M</button>
-                </div>
-            </header>
-            <igx-card class="chart" type="outlined">
-                <div class="chart__legend">
-                    <span class="chart__legend-item"><span>🟩</span> Approved</span>
-                    <span class="chart__legend-item"><span>🟪</span> Canceled</span>
-                </div>
-                <div>
-                    <igx-category-chart height="200px" width="300px" [dataSource]="orderStatus" chartType="Column">
-                    </igx-category-chart>
-                </div>
-            </igx-card>
-        </article>
-    </div>
+            </div>
+        </igx-card>
+    </article>
+    <article class="section__col">
+<!--        <header class="section__header">-->
+<!--            <span>Title</span>-->
+<!--            <div class="section__header-actions">-->
+<!--                <button igxButton="outlined">1D</button>-->
+<!--                <button igxButton="outlined">1W</button>-->
+<!--                <button igxButton="outlined">1M</button>-->
+<!--            </div>-->
+<!--        </header>-->
+        <igx-card class="chart grid-wrapper__card--charts" type="outlined">
+            <div class="chart__legend">
+                <span class="chart__legend-item"><span>🟩</span> Approved</span>
+                <span class="chart__legend-item"><span>🟪</span> Canceled</span>
+            </div>
+            <div>
+                <igx-category-chart height="200px" width="300px" [dataSource]="orderStatus" chartType="Column">
+                </igx-category-chart>
+            </div>
+        </igx-card>
+    </article>
+
 </section>
 <igx-divider></igx-divider>
 
-<!-- card stats -->
 <section class="section">
     <div class="section__row section__row--space">
         <igx-card dir="rtl" class="card-stats-horizontal" type="outlined" [horizontal]="true">
