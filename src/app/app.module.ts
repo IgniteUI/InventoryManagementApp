@@ -26,11 +26,11 @@ import { IgxBarSeriesModule,
   IgxLegendModule,
   IgxNumericXAxisModule,
   IgxNumericYAxisModule,
-  IgxPieChartModule } from 'igniteui-angular-charts';
+  IgxPieChartModule,
+  IgxScatterSeriesModule} from 'igniteui-angular-charts';
+import { IgxLinearGaugeModule } from "igniteui-angular-gauges";
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
-import { IgxLinearGaugeModule } from 'igniteui-angular-gauges';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +70,7 @@ import { IgxLinearGaugeModule } from 'igniteui-angular-gauges';
         IgxBarSeriesModule,
         IgxColumnSeriesModule,
         IgxCategoryChartModule,
+        IgxScatterSeriesModule,
         IgxLinearGaugeModule
     ],
   providers: [],
