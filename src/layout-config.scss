@@ -1,9 +1,11 @@
-@import "~igniteui-angular/lib/core/styles/themes/index";
-@import "~igniteui-angular/lib/core/styles/base/index";
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@import '~igniteui-angular/lib/core/styles/base/index';
+
 // Vars
 $gap: rem(32px);
 $page-gap: $gap;
 $grid-gap: $gap;
+$section-space: rem(16px);
 $drawer-width: rem(228px);
 
 $danger-color: var(--igx-error-500);

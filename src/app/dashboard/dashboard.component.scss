@@ -5,85 +5,50 @@
     flex-direction: column;
 
     @include b(section) {
-        padding: $page-gap 0;
+        margin: $grid-gap 0;
 
         &:first-of-type {
-            padding-top: 0;
+            margin-top: 0;
         }
 
         &:last-of-type {
-            padding-bottom: 0;
-        }
-
-        @include e(header) {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            margin-bottom: rem(16px);
-
-            span {
-                font-size: rem(24px);
-                font-weight: 500;
-                letter-spacing: rem(0.5px);
-                margin: 0;
-                line-height: normal;
-                @include ellipsis();
-            }
-        }
-
-        @include e(header, $m: small) {
-            margin-bottom: rem(8px);
-
-            span {
-                font-size: rem(16px);
-                letter-spacing: rem(1px);
-            }
-        }
-
-        @include e(header-actions) {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            > * {
-                margin-left: rem(8px);
-
-                &:first-of-type {
-                    margin-left: 0;
-                }
-            }
-        }
-
-        @include e(row) {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            > * {
-                margin-left: $grid-gap;
-
-                &:first-of-type {
-                    margin-left: 0;
-                }
-            }
-        }
-
-        @include e(row, $m: space) {
-            justify-content: space-between;
+            margin-bottom: 0;
         }
 
         @include e(col) {
             display: flex;
             flex-direction: column;
-            flex: 1;
+        }
+
+        @include e(header) {
+            display: flex;
+            min-height: rem(36);
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: $section-space;
+        }
+
+        @include e(header, $m: small) {
+            margin-bottom: $section-space / 1.5;
+        }
+
+        @include e(header-title) {
+            font-size: rem(20px);
+            line-height: normal;
+            @include ellipsis();
         }
     }
 
     @include b(order-stats) {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        padding-top: $grid-gap / 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 260px);
+        grid-auto-rows: auto;
+        grid-gap: $grid-gap;
+
+        @include e(item) {
+            display: flex;
+            align-items: center;
+        }
 
         @include e(icon) {
             font-size: rem(48px);
@@ -98,12 +63,6 @@
             height: rem(56px);
             display: inline-flex;
             margin: 0 rem(16px) !important;
-        }
-
-        @include e(item) {
-            display: flex;
-            align-items: center;
-            padding-bottom: $grid-gap / 2;
         }
 
         @include e(label) {
@@ -136,55 +95,50 @@
         }
     }
 
-    @include b(carousel) {
-        :focus {
-            outline: none;
-        }
-
-        @include e(slide) {
-            display: flex;
-            justify-content: center;
-        }
+    @include b(grid-wrapper) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: $grid-gap;
 
         @include e(card) {
-            width: 100% !important;
-            height: 100%;
+            max-height: 100%;
 
-            img {
-                width: 100%;
+            igx-card-media {
+                margin: 0 auto;
+                background: #fff;
             }
         }
 
-        @include e(card-divider) {
-            height: rem(10px);
-            width: rem(2px);
-            margin: 0 rem(4px);
-        }
-
-        @include e(card-total-earned) {
-            color: var(--igx-warn-500);
-        }
-
-        .igx-card__media {
-            display: flex;
+        @include e(card, $m: charts) {
             align-items: center;
             justify-content: center;
+            max-height: 100%;
+            height: 100%;
+        }
+
+        @include m(fixed-height) {
+            grid-auto-rows: rem(290px);
+        }
+
+        @include m(summary) {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    }
+
+    @include b(carousel) {
+        @include e(card-total-earned) {
+            color: $warn-color;
+        }
+        @include e(card-divider) {
+            margin:0 rem(4px);
         }
     }
 
     @include b(chart) {
-        align-items: center;
-        justify-content: center;
-        flex: 1;
-        min-width: rem(300px);
-        min-height: rem(262px);
-        padding: $grid-gap / 2;
-
         @include e(legend) {
-            display:flex;
+            display: flex;
             align-items: center;
         }
-
         @include e(legend-item) {
             display: flex;
             align-items: center;
@@ -197,38 +151,93 @@
                 margin-left: rem(8px)
             }
         }
-
+        @include e(linear-label) {
+            font-size: 12px;
+            line-height: normal;
+        }
         @include e(col) {
             display: flex;
             width: 100%;
+            height: 100%;
             flex-direction: column;
+            padding: $grid-gap
+        }
+        @include e(col, $m: pie) {
+            flex-direction: row-reverse;
+            align-items: center;
         }
         @include e(row) {
             display: flex;
             width: 100%;
-        }
+            align-items: center;
+            margin-bottom: 16px;
 
+            &:nth-child(1) {
+                margin-right: rem(4px);
+            }
+        }
         @include m(pie) {
             flex-direction: row-reverse !important;
+
+            .igx-pie-chart {
+                margin-right: rem(8px);
+            }
+        }
+
+        @include e(legend-item-badge) {
+            margin-right: rem(4px);
+        }
+
+        igx-linear-gauge {
+            width: 100%;
         }
 
         .ig-chart-legend-item {
-            display: flex;
-            align-items: center;
-            > * {
-                display: flex;
-            }
-            padding-bottom: rem(8px);
+            margin-bottom: rem(4px);
         }
 
         .ig-chart-legend-item-badge {
             margin-right: rem(4px);
         }
 
-        .igx-pie-chart {
-            margin-right: rem(8px);
+        .ig-chart-legend-item,
+        .ig-chart-legend-item-badge {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    @include b(card-stats-horizontal) {
+        min-width: rem(220px);
+        padding: $grid-gap / 2;
+        margin-bottom: rem(16px);
+        flex: 1;
+
+        @include e(title) {
+            font-size: rem(32px) !important;
+            color: var(--igx-primary-500);
+        }
+
+        @include e(subtitle) {
+            text-transform: uppercase !important;
+            color: var(--igx-grays-800)
+        }
+
+        @include e(media) {
+            display: flex;
+            align-items: center;
+            margin-left: rem(8px);
+            margin-right: rem(16px);
+
+            .igx-icon {
+                color: var(--igx-primary-500);
+                font-size: rem(52px);
+                height: rem(52px);
+                width: rem(52px);
+            }
         }
     }
 }
+
 
 

@@ -1,5 +1,5 @@
-@import "~minireset.css/minireset";
-@import "layout-config";
+@import '~minireset.css/minireset';
+@import 'layout-config';
 
 /* autoprefixer grid: on */
 
@@ -10,40 +10,19 @@
 @include igx-palette-vars($light-indigo-palette, $contrast: true);
 
 html, body {
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: hidden;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--igx-surface-500);
-  color: var(--igx-surface-500-contrast);
+    background: var(--igx-surface-500);
+    color: var(--igx-surface-500-contrast);
 }
 
 .igx-nav-drawer__item > igx-icon + span, .igx-nav-drawer__item--active > igx-icon + span {
-  margin-left: 4px;
-}
-
-.card-stats-horizontal {
-  min-width: rem(220px);
-  padding: $grid-gap / 2;
-  margin-bottom: rem(16px);
-  flex: 1;
-}
-
-.card-stats-horizontal__media {
-  display: flex;
-  align-items: center;
-  margin-left: rem(8px);
-  margin-right: rem(16px);
-
-  .igx-icon {
-    color: var(--igx-primary-500);
-    font-size: rem(40px);
-    height: rem(40px);
-    width: rem(40px);
-  }
+    margin-left: 4px;
 }
