@@ -22,7 +22,7 @@
 
         @include e(header) {
             display: flex;
-            min-height: rem(36);
+            min-height: rem(40px);
             align-items: center;
             justify-content: space-between;
             margin-bottom: $section-space;
@@ -33,6 +33,7 @@
         }
 
         @include e(header-title) {
+            margin-right: rem(8px);
             font-size: rem(20px);
             line-height: normal;
             @include ellipsis();
@@ -102,9 +103,12 @@
 
         @include e(card) {
             max-height: 100%;
+            height: 100%;
 
             igx-card-media {
-                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 background: #fff;
             }
         }
@@ -130,7 +134,7 @@
             color: $warn-color;
         }
         @include e(card-divider) {
-            margin:0 rem(4px);
+            margin: 0 rem(4px);
         }
     }
 
@@ -145,12 +149,24 @@
 
             span {
                 margin-right: rem(4px);
+                width: rem(16px);
+                height: rem(16px);
+                border-radius: 4px;
             }
 
             &:last-of-type {
                 margin-left: rem(8px)
             }
         }
+
+        @include e(legend-item-color-p) {
+            background: var(--igx-primary-500);
+        }
+
+        @include e(legend-item-color-s) {
+            background: var(--igx-secondary-500);
+        }
+
         @include e(linear-label) {
             font-size: 12px;
             line-height: normal;
@@ -214,13 +230,16 @@
         flex: 1;
 
         @include e(title) {
-            font-size: rem(32px) !important;
+            font-size: rem(28px) !important;
             color: var(--igx-primary-500);
         }
 
         @include e(subtitle) {
             text-transform: uppercase !important;
-            color: var(--igx-grays-800)
+            font-size: rem(14px) !important;
+            margin-top: rem(4px) !important;
+            color: var(--igx-grays-800);
+            @include ellipsis();
         }
 
         @include e(media) {
@@ -238,6 +257,5 @@
         }
     }
 }
-
 
 

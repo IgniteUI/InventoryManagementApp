@@ -97,10 +97,10 @@ export class DashboardComponent {
     ];
 
     public channelData = [
-        {Channel: 'Amazon', Orders: 37},
-        {Channel: 'Ebay', Orders: 13},
-        {Channel: 'Website', Orders: 25},
-        {Channel: 'Facebook', Orders: 25}
+        {Channel: 'Amazon', Orders: 37, color: '#9BE96B'},
+        {Channel: 'Ebay', Orders: 13, color: '#8A5FAB'},
+        {Channel: 'Website', Orders: 25, color: '#6AAFFF'},
+        {Channel: 'Facebook', Orders: 25, color: '#97F3E4'}
     ];
 
     public orderStatus = [

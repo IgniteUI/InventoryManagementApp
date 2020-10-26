@@ -2,12 +2,13 @@
 @import 'layout-config';
 
 /* autoprefixer grid: on */
+$app-palette: $default-palette;
 
 @include igx-core();
-@include igx-indigo-light-theme($light-indigo-palette);
+@include igx-theme($app-palette);
 
 // Generate css variables from given palette.
-@include igx-palette-vars($light-indigo-palette, $contrast: true);
+@include igx-palette-vars($app-palette, $contrast: true);
 
 html, body {
     height: 100%;
@@ -23,6 +24,27 @@ body {
     color: var(--igx-surface-500-contrast);
 }
 
+.igx-bootstrap-light-theme,
+.igx-bootstrap-dark-theme {
+    .card-stats-horizontal__header {
+        margin-bottom: 0 !important;
+        align-self: center;
+    }
+}
+
 .igx-nav-drawer__item > igx-icon + span, .igx-nav-drawer__item--active > igx-icon + span {
-    margin-left: 4px;
+    margin-left: rem(4px) !important;
+}
+
+// TODO fix max width in Indigo theme
+.igx-fluent-light-theme,
+.igx-fluent-dark-theme,
+.igx-dark-theme,
+.igx-light-theme,
+.igx-bootstrap-light-theme,
+.igx-bootstrap-dark-theme {
+    .igx-nav-drawer__aside--mini .igx-nav-drawer__item,
+    .igx-nav-drawer__aside--mini .igx-nav-drawer__item--active {
+        max-width: 100%;
+    }
 }

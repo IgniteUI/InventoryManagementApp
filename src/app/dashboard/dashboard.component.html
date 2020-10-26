@@ -135,17 +135,15 @@
                     <div class="chart__row">
                         <igx-linear-gauge
                                 width="100%"
-                                height="16px"
+                                height="8px"
                                 tickStrokeThickness="0"
                                 maximumValue="100"
-                                fontBrush="white"
                                 minorTickStrokeThickness="0"
                                 labelsPreTerminal=200
-                                scaleBrush="green"
-                                backingBrush="#00000"
                                 labelInterval="0">
-                            <igx-linear-graph-range brush="green"
-                                                    startValue=0 [endValue]="lg.Orders">
+                            <igx-linear-graph-range
+                                    [brush]="lg.color"
+                                    startValue=0 [endValue]="lg.Orders">
                             </igx-linear-graph-range>
                         </igx-linear-gauge>
                         <span class="chart__linear-label">{{lg.Orders}}%</span>
@@ -167,8 +165,8 @@
         <igx-card class="grid-wrapper__card--charts" type="outlined">
             <div class="chart__col">
                 <div class="chart__legend">
-                    <span class="chart__legend-item"><span>🟩</span> Approved</span>
-                    <span class="chart__legend-item"><span>🟪</span> Canceled</span>
+                    <span class="chart__legend-item"><span class="chart__legend-item-color-p"></span> Approved</span>
+                    <span class="chart__legend-item"><span class="chart__legend-item-color-s"></span> Canceled</span>
                 </div>
                 <igx-data-chart height="160px" [dataSource]="orderStatus" chartType="Column">
                 <igx-category-x-axis #cxAxis
@@ -181,19 +179,18 @@
                     <igx-numeric-y-axis
                       #nyAxis
                       name="nyAxis"
-                      majorStroke="gray"
                       majorStrokeThickness="1"
                     >
                     </igx-numeric-y-axis>
                     <igx-numeric-x-axis
                       #nxAxis
                       name="nxAxis"
-                      majorStroke="white"
+                      majorStroke="transparent"
                       majorStrokeThickness="5"
-                      minorStroke="white"
+                      minorStroke="transparent"
                       minorStrokeThickness="5"
-                      miniumumValue="0"
-                      maxiumumValue="5"
+                      minimumValue="0"
+                      maximumValue="5"
                       interval="0.5"
                       labelLocation="OutsideTop"
                       labelVisibility="Collapsed"
@@ -242,7 +239,7 @@
                 <igx-icon fontSet="imx-icons" name="gift"></igx-icon>
             </igx-card-media>
         </div>
-        <igx-card-header dir="ltr">
+        <igx-card-header class="card-stats-horizontal__header" dir="ltr">
             <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>1190</h3>
             <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be packed</h5>
         </igx-card-header>
@@ -253,7 +250,7 @@
                 <igx-icon fontSet="imx-icons" name="drop-shipping"></igx-icon>
             </igx-card-media>
         </div>
-        <igx-card-header dir="ltr">
+        <igx-card-header class="card-stats-horizontal__header" dir="ltr">
             <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>2312</h3>
             <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>to be shipped</h5>
         </igx-card-header>
@@ -264,7 +261,7 @@
                 <igx-icon fontSet="imx-icons" name="invoice"></igx-icon>
             </igx-card-media>
         </div>
-        <igx-card-header dir="ltr">
+        <igx-card-header class="card-stats-horizontal__header" dir="ltr">
             <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>354</h3>
             <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be invoiced</h5>
         </igx-card-header>
@@ -275,7 +272,7 @@
                 <igx-icon fontSet="imx-icons" name="delivery"></igx-icon>
             </igx-card-media>
         </div>
-        <igx-card-header dir="ltr">
+        <igx-card-header class="card-stats-horizontal__header" dir="ltr">
             <h3 class="card-stats-horizontal__title" igxCardHeaderTitle>2120</h3>
             <h5 class="card-stats-horizontal__subtitle" igxCardHeaderSubtitle>To be delivered</h5>
         </igx-card-header>
