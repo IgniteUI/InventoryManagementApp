@@ -22,7 +22,7 @@
 
         @include e(header) {
             display: flex;
-            //flex-wrap: wrap;
+            min-height: rem(36);
             align-items: center;
             justify-content: space-between;
             margin-bottom: $section-space;
@@ -33,14 +33,9 @@
         }
 
         @include e(header-title) {
-            //min-width: 280px;
-            font-size: rem(32px);
+            font-size: rem(20px);
             line-height: normal;
             @include ellipsis();
-        }
-
-        @include e(header-title, $m: small) {
-            font-size: rem(24px);
         }
     }
 
@@ -130,12 +125,20 @@
         }
     }
 
+    @include b(carousel) {
+        @include e(card-total-earned) {
+            color: $warn-color;
+        }
+        @include e(card-divider) {
+            margin:0 rem(4px);
+        }
+    }
+
     @include b(chart) {
         @include e(legend) {
             display: flex;
             align-items: center;
         }
-
         @include e(legend-item) {
             display: flex;
             align-items: center;
@@ -148,19 +151,21 @@
                 margin-left: rem(8px)
             }
         }
-
         @include e(linear-label) {
             font-size: 12px;
             line-height: normal;
         }
-
         @include e(col) {
             display: flex;
             width: 100%;
+            height: 100%;
             flex-direction: column;
             padding: $grid-gap
         }
-
+        @include e(col, $m: pie) {
+            flex-direction: row-reverse;
+            align-items: center;
+        }
         @include e(row) {
             display: flex;
             width: 100%;
@@ -171,33 +176,35 @@
                 margin-right: rem(4px);
             }
         }
-
         @include m(pie) {
             flex-direction: row-reverse !important;
+
+            .igx-pie-chart {
+                margin-right: rem(8px);
+            }
+        }
+
+        @include e(legend-item-badge) {
+            margin-right: rem(4px);
+        }
+
+        igx-linear-gauge {
+            width: 100%;
         }
 
         .ig-chart-legend-item {
-            display: flex;
-            align-items: center;
-
-            > * {
-                display: flex;
-            }
-
-            padding-bottom: rem(8px);
+            margin-bottom: rem(4px);
         }
 
         .ig-chart-legend-item-badge {
             margin-right: rem(4px);
         }
 
-        .igx-pie-chart {
-            margin-right: rem(8px);
+        .ig-chart-legend-item,
+        .ig-chart-legend-item-badge {
+            display: flex;
+            align-items: center;
         }
-    }
-
-    igx-linear-gauge {
-        width: 100%;
     }
 
     @include b(card-stats-horizontal) {
@@ -212,7 +219,8 @@
         }
 
         @include e(subtitle) {
-            text-transform: uppercase;
+            text-transform: uppercase !important;
+            color: var(--igx-grays-800)
         }
 
         @include e(media) {
