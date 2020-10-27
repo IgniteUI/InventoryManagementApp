@@ -15,20 +15,20 @@ export class DashboardComponent {
         {
             imageURL: this.productPATH + 'Sony-A8H-55-4K-OLED.png',
             title: 'Sony A8H 55 4K OLED',
-            totalEarned: 231,
-            soldPieces: 32423
+            totalEarned: 732.321,
+            soldPieces: 821
         },
         {
             imageURL: this.productPATH + 'Sony-A8H-55-4K-OLED.png',
             title: 'Sony A8H 55 4K OLED',
-            totalEarned: 331,
-            soldPieces: 32423
+            totalEarned: 423.231,
+            soldPieces: 161
         },
         {
             imageURL: this.productPATH + 'Sony-A8H-55-4K-OLED.png',
             title: 'Sony A8H 55 4K OLED',
-            totalEarned: 421,
-            soldPieces: 32423
+            totalEarned: 873.143,
+            soldPieces: 87
         }
     ];
 
@@ -36,20 +36,20 @@ export class DashboardComponent {
         {
             imageURL: this.productPATH + 'Canon-EOS-R5.jpg',
             title: 'Canon EOS R5',
-            totalEarned: 251,
-            soldPieces: 33423
+            totalEarned: 24.231,
+            soldPieces: 401
         },
         {
             imageURL: this.productPATH + 'Broncolor-Siros-400L.png',
             title: 'Broncolor Siros 400L',
-            totalEarned: 221,
-            soldPieces: 31423
+            totalEarned: 29.231,
+            soldPieces: 231
         },
         {
             imageURL: this.productPATH + 'Canon-RF-85mm-f1.2L.png',
             title: 'Canon RF 85mm f1.2L',
-            totalEarned: 201,
-            soldPieces: 31423
+            totalEarned: 83.231,
+            soldPieces: 131
         }
     ];
 
@@ -57,20 +57,20 @@ export class DashboardComponent {
         {
             imageURL: this.productPATH + 'Rode-Wireless-GO-Black.png',
             title: 'Rode Wireless GO Black',
-            totalEarned: 231,
-            soldPieces: 32423
+            totalEarned: 323.231,
+            soldPieces: 231
         },
         {
             imageURL: this.productPATH + 'BenQ-TK850.png',
             title: 'BenQ TK850',
-            totalEarned: 231,
-            soldPieces: 32423
+            totalEarned: 223.231,
+            soldPieces: 101
         },
         {
             imageURL: this.productPATH + 'GoPro-HERO8-Black.png',
             title: 'GoPro-HERO8-Black',
-            totalEarned: 231,
-            soldPieces: 32423
+            totalEarned: 123.231,
+            soldPieces: 31
         }
     ];
 
@@ -97,10 +97,10 @@ export class DashboardComponent {
     ];
 
     public channelData = [
-        {Channel: 'Amazon', Orders: 37, color: '#9BE96B'},
-        {Channel: 'Ebay', Orders: 13, color: '#8A5FAB'},
-        {Channel: 'Website', Orders: 25, color: '#6AAFFF'},
-        {Channel: 'Facebook', Orders: 25, color: '#97F3E4'}
+        {Channel: 'Amazon', Orders: 83, class: 'amazon'},
+        {Channel: 'Ebay', Orders: 22, class: 'ebay'},
+        {Channel: 'Website', Orders: 45, class: 'website'},
+        {Channel: 'Facebook', Orders: 65, class: 'facebook'}
     ];
 
     public orderStatus = [

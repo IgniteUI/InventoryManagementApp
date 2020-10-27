@@ -142,10 +142,12 @@
         @include e(legend) {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         @include e(legend-item) {
             display: flex;
             align-items: center;
+            font-size: rem(14px);
 
             span {
                 margin-right: rem(4px);
@@ -174,9 +176,9 @@
         @include e(col) {
             display: flex;
             width: 100%;
-            height: 100%;
             flex-direction: column;
-            padding: $grid-gap
+            justify-content: center;
+            padding: 0 $grid-gap
         }
         @include e(col, $m: pie) {
             flex-direction: row-reverse;
@@ -256,6 +258,55 @@
             }
         }
     }
+
+    @include b(progress-bar) {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+        margin-bottom: rem(8px);
+
+        @include e(label){
+            font-size: rem(14px);
+        }
+
+        @include e(inner){
+            display: flex;
+            line-height: 1;
+            align-items: center;
+
+            span {
+                margin-left: rem(8px);
+                font-size: rem(12px);
+            }
+        }
+    }
 }
 
+.igx-linear-bar__base {
+    height: rem(8px);
+    border-radius: 0 rem(4px) rem(4px) 0;
+}
 
+.color-amazon {
+    .igx-linear-bar__indicator{
+        background: #9BE96B
+    }
+}
+
+.color-ebay {
+    .igx-linear-bar__indicator{
+        background: #8A5FAB
+    }
+}
+
+.color-website {
+    .igx-linear-bar__indicator{
+        background: #6AAFFF
+    }
+}
+
+.color-facebook {
+    .igx-linear-bar__indicator{
+        background: #97F3E4
+    }
+}
