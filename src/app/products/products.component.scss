@@ -61,10 +61,27 @@ igx-divider {
     padding-left: 16px;
 }
 
-.group-label__icon, .group-label__column-name, .group-label__text, .group-label__count-badge {
+.group-label__icon,
+.group-label__column-name,
+.group-label__text,
+.group-label__count-badge {
     margin-right: 4px;
 }
 
-.dialogNewRecord {
-    padding: $page-gap
+.dialog-form {
+    padding: 0 $form-gap $form-gap $form-gap;
+    > * {
+        margin-bottom:rem(16px);
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+::ng-deep {
+    .igx-dialog__window-actions {
+        padding: 0 $form-gap $form-gap $form-gap;
+    }
 }
