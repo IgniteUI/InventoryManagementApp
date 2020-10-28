@@ -25,22 +25,25 @@
         </igx-icon>
     </button>
     <!--<igniteui-theming-widget themeUrl="https://igniteuithemingwidget-staging.infragistics.com/api/taas"></igniteui-theming-widget>-->
-    <igx-drop-down #dropDown (onClosing)='onDropDownClosing($event)' (onSelection)="onThemeSelectionHandler($event)" [width]="'200px'" >
+    <igx-drop-down class="dropdown" #dropDown (onClosing)='onDropDownClosing($event)' (onSelection)="onThemeSelectionHandler($event)" [width]="'200px'" >
         <igx-drop-down-item *ngFor="let theme of themes" [value]="theme.globalTheme">
-            <div class="itw-theme-item">
-                <div class="itw-theme-switch__colors">
-                    <span class="itw-theme-switch__color itw-theme-switch__color--primary"
-                          [style.background]='getCurrentPrimaryColor(theme.globalTheme)'></span>
-                    <span class="itw-theme-switch__color itw-theme-switch__color--secondary"
-                          [style.background]='getCurrentSecondaryColor(theme.globalTheme)'></span>
+            <div class="dropdown__item">
+                <div class="dropdown__colors">
+                    <span class="dropdown__color dropdown__color--primary"
+                          [style.background]='getCurrentPrimaryColor(theme.globalTheme)'>
+                    </span>
+                    <span class="dropdown__color dropdown__color--secondary"
+                          [style.background]='getCurrentSecondaryColor(theme.globalTheme)'>
+                    </span>
                 </div>
-                <span class="itw-theme-item-label">{{theme.name}}</span>
+                <span class="dropdown__label">{{theme.name}}</span>
             </div>
         </igx-drop-down-item>
-        <div class="itw-loadingOverlay" [ngStyle]="{'visibility': isLoading ? 'visible' : 'hidden' }">
+        <div class="dropdown__loading" [ngStyle]="{'visibility': isLoading ? 'visible' : 'hidden' }">
             <igx-circular-bar class="itw-loader" [animate]="false" [indeterminate]="true" [textVisibility]="false">
             </igx-circular-bar>
         </div>
     </igx-drop-down>
     <div class="itw-overlayOutlet" igxOverlayOutlet #outlet="overlay-outlet"></div>
+
 </igx-navbar>

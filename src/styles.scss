@@ -2,10 +2,11 @@
 @import 'layout-config';
 
 /* autoprefixer grid: on */
-$app-palette: $default-palette;
+$schema: $light-indigo-schema;
+$app-palette: $light-indigo-palette;
 
 @include igx-core();
-@include igx-theme($app-palette);
+@include igx-theme($palette: $app-palette, $schema: $schema);
 
 // Generate css variables from given palette.
 @include igx-palette-vars($app-palette, $contrast: true);
@@ -48,3 +49,4 @@ body {
         max-width: 100%;
     }
 }
+
