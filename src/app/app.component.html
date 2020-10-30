@@ -1,7 +1,8 @@
 <app-main-navigation></app-main-navigation>
 <div id="site-wrapper">
-    <app-user-navigation></app-user-navigation>
+    <app-user-navigation [outlet]="outlet"></app-user-navigation>
     <main class="main-content">
         <router-outlet></router-outlet>
     </main>
+    <div class="itw-overlayOutlet" igxOverlayOutlet #outlet="overlay-outlet"></div>
 </div>

@@ -35,6 +35,8 @@ export class UserNavigationComponent implements OnInit {
     @ViewChild('dropDown', { static: true }) public dropDown: IgxDropDownComponent;
     @Input()
     public theme: Theme;
+    @Input()
+    public outlet: any;
     public title = "Products";
 
     public themes: Array<any> = [
