@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input, Output, EventEmitter, ChangeDetect
 import { PRODUCTS } from './localData';
 import { Product } from './product';
 import {
+    DefaultSortingStrategy,
     IgxActionStripComponent,
     IgxDialogComponent,
     IgxGridComponent,
@@ -14,6 +15,8 @@ import {
     IgxNumberSummaryOperand,
     IgxToastComponent,
     IgxToastPosition,
+    ISortingExpression,
+    SortingDirection
 } from 'igniteui-angular';
 
 
@@ -63,12 +66,17 @@ export class ProductsComponent implements OnInit {
     public caseSensitive = false;
     public exactMatch = false;
     public density = 'cosy';
+    public expr: ISortingExpression[];
 
     @Input()
     public sku: string;
 
     constructor() {
         this.data = PRODUCTS;
+        this.expr = [
+            { dir: SortingDirection.Asc, fieldName: "supplier", ignoreCase: false,
+              strategy: DefaultSortingStrategy.instance() }
+        ];
     }
 
     ngOnInit(): void {
@@ -77,9 +85,9 @@ export class ProductsComponent implements OnInit {
             this.transactionsData = this.grid.transactions.getAggregatedChanges(true);
         });
         this.product = new Product();
-        this.grid.summaryCalculationMode = GridSummaryCalculationMode.rootLevelOnly;
+        this.grid.summaryCalculationMode = GridSummaryCalculationMode.rootAndChildLevels;
         this.grid.summaryPosition = GridSummaryPosition.top;
-        this.grid.showSummaryOnCollapse = false;
+        this.grid.showSummaryOnCollapse = true;
     }
 
     onMouseOver(event, grid, actionStrip): void {

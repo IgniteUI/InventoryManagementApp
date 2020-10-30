@@ -68,7 +68,7 @@
 <section class="grid-wrapper">
     <igx-grid #grid [data]="data" [primaryKey]="'sku'" [rowEditable]="true" [rowSelection]='selectionMode'
               [displayDensity]="density" (mouseleave)="onMouseLeave(actionstrip)"
-              (mouseover)="onMouseOver($event, grid, actionstrip)">
+              (mouseover)="onMouseOver($event, grid, actionstrip)" [groupingExpressions]='expr'>
         <igx-column field="product" header="Product" [dataType]="'string'" [groupable]="true" width="30%"></igx-column>
         <igx-column field="sku" header="SKU" [groupable]="true"></igx-column>
         <igx-column field="supplier" header="Supplier" [dataType]="'string'" [groupable]="true" width="10%"></igx-column>
