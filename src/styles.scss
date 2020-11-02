@@ -1,7 +1,7 @@
 @import '~minireset.css/minireset';
 @import 'layout-config';
 
-/* autoprefixer grid: on */
+/* autoprefixer grid: on 
 $schema: $light-indigo-schema;
 $app-palette: $light-indigo-palette;
 
@@ -9,7 +9,7 @@ $app-palette: $light-indigo-palette;
 @include igx-theme($palette: $app-palette, $schema: $schema);
 
 // Generate css variables from given palette.
-@include igx-palette-vars($app-palette, $contrast: true);
+@include igx-palette-vars($app-palette, $contrast: true);*/
 
 html, body {
     height: 100%;
