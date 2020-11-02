@@ -3,7 +3,10 @@ import { PRODUCTS } from './localData';
 import { Product } from './product';
 import {
     DefaultSortingStrategy,
+    FilteringExpressionsTree,
+    FilteringLogic,
     IgxActionStripComponent,
+    IgxBooleanFilteringOperand,
     IgxDialogComponent,
     IgxGridComponent,
     IgxGridTransaction,
@@ -12,6 +15,7 @@ import {
     IgxSummaryResult,
     GridSummaryCalculationMode,
     GridSummaryPosition,
+    IgxNumberFilteringOperand,
     IgxNumberSummaryOperand,
     IgxToastComponent,
     IgxToastPosition,
@@ -175,7 +179,58 @@ export class ProductsComponent implements OnInit {
     }
 
     public filterLowInventory(): void {
-        // this.grid.clearFilter();
-        // this.grid.filter("UnitsInStock", 13, IgxNumberFilteringOperand.instance().condition('lessThan'));
+        this.grid.clearFilter();
+        this.grid.filter("available", 13, IgxNumberFilteringOperand.instance().condition('lessThan'));
+    }
+
+    public filterTotalCommited(): void {
+        this.grid.clearFilter();
+        this.grid.filter("commited", 0, IgxNumberFilteringOperand.instance().condition('greaterThan'));
+    }
+
+    public filterOversold(): void {
+        this.grid.clearFilter();
+        this.grid.filter("commited", 200, IgxNumberFilteringOperand.instance().condition('greaterThan'));
+    }
+
+    public filterDropship(): void {
+        this.grid.clearFilter();
+        this.grid.filter("dropship", true, IgxBooleanFilteringOperand.instance().condition('true'));
+    }
+
+    public filterArchived(): void {
+        this.grid.clearFilter();
+        this.grid.filter("archived", true, IgxBooleanFilteringOperand.instance().condition('true'));
+    }
+
+    public filterKits(): void {
+        this.grid.clearFilter();
+        this.grid.filter("kits", true, IgxBooleanFilteringOperand.instance().condition('true'));
+    }
+
+    public filterActive(): void {
+        this.grid.clearFilter();
+        const gridFilteringExpressionsTree = new FilteringExpressionsTree(FilteringLogic.And);
+        const availableFilteringExpressionsTree = new FilteringExpressionsTree(FilteringLogic.And, "available");
+        const availableExpression = {
+            condition: IgxNumberFilteringOperand.instance().condition('greaterThan'),
+            fieldName: "available",
+            ignoreCase: true,
+            searchVal: 0
+        };
+        availableFilteringExpressionsTree.filteringOperands.push(availableExpression);
+        gridFilteringExpressionsTree.filteringOperands.push(availableFilteringExpressionsTree);
+
+        const physOnHandFilteringExpressionsTree = new FilteringExpressionsTree(FilteringLogic.And, "physOnHand");
+        const physOnHandExpression = {
+            condition: IgxNumberFilteringOperand.instance().condition("greaterThan"),
+            fieldName: "physOnHand",
+            ignoreCase: true,
+            searchVal: 0
+        };
+        physOnHandFilteringExpressionsTree.filteringOperands.push(physOnHandExpression);
+        gridFilteringExpressionsTree.filteringOperands.push(physOnHandFilteringExpressionsTree);
+
+        this.grid.filteringExpressionsTree = gridFilteringExpressionsTree;
     }
 }
