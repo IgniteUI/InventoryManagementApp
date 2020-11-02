@@ -90,25 +90,112 @@ export class DashboardComponent {
     ];
 
     public pieChartData = [
-        {Sale: 33, City: 'New York'},
-        {Sale: 29, City: 'San Francisco'},
-        {Sale: 20, City: 'New Jersey'},
-        {Sale: 18, City: 'London'}
+        { Sale: 33, City: 'New York' },
+        { Sale: 29, City: 'San Francisco' },
+        { Sale: 20, City: 'New Jersey' },
+        { Sale: 18, City: 'London' }
     ];
 
     public channelData = [
-        {Channel: 'Amazon', Orders: 83, class: 'amazon'},
-        {Channel: 'Ebay', Orders: 22, class: 'ebay'},
-        {Channel: 'Website', Orders: 45, class: 'website'},
-        {Channel: 'Facebook', Orders: 65, class: 'facebook'}
+        { Channel: 'Amazon', Orders: 83, class: 'amazon' },
+        { Channel: 'Ebay', Orders: 22, class: 'ebay' },
+        { Channel: 'Website', Orders: 45, class: 'website' },
+        { Channel: 'Facebook', Orders: 65, class: 'facebook' }
     ];
 
     public orderStatus = [
-        {Year: 'Sep 30', approved: 220, canceled: 60},
-        {Year: 'Oct 1', approved: 520, canceled: 80},
-        {Year: 'Oct 2', approved: 200, canceled: 30},
-        {Year: 'Oct 3', approved: 360, canceled: 100},
-        {Year: 'Oct 4', approved: 490, canceled: 85}
+        { Year: 'Sep 30', approved: 220, canceled: 60 },
+        { Year: 'Oct 1', approved: 520, canceled: 80 },
+        { Year: 'Oct 2', approved: 200, canceled: 30 },
+        { Year: 'Oct 3', approved: 360, canceled: 100 },
+        { Year: 'Oct 4', approved: 490, canceled: 85 }
     ];
+
+    public selectOrdersByChannel(event) {
+        switch (event.index) {
+            case 0:
+                // 1D
+                this.channelData[0].Orders = 83;
+                this.channelData[1].Orders = 22;
+                this.channelData[2].Orders = 45;
+                this.channelData[3].Orders = 65;
+                break;
+            case 1:
+                // 1W
+                this.channelData[0].Orders = 64;
+                this.channelData[1].Orders = 39;
+                this.channelData[2].Orders = 12;
+                this.channelData[3].Orders = 59;
+                break;
+            case 2:
+                // 1M
+                this.channelData[0].Orders = 82;
+                this.channelData[1].Orders = 25;
+                this.channelData[2].Orders = 29;
+                this.channelData[3].Orders = 44;
+                break;
+            case 3:
+                // 1Y
+                this.channelData[0].Orders = 45;
+                this.channelData[1].Orders = 38;
+                this.channelData[2].Orders = 29;
+                this.channelData[3].Orders = 52;
+                break;
+        }
+    }
+
+    public selectOrderStatus(event) {
+        switch (event.index) {
+            case 0:
+                // 1D
+                this.orderStatus[0].approved = 220;
+                this.orderStatus[0].canceled = 60;
+                this.orderStatus[1].approved = 520;
+                this.orderStatus[1].canceled = 80;
+                this.orderStatus[2].approved = 200;
+                this.orderStatus[2].canceled = 30;
+                this.orderStatus[3].approved = 360;
+                this.orderStatus[3].canceled = 100;
+                this.orderStatus[4].approved = 490;
+                this.orderStatus[4].canceled = 85;
+                break;
+            case 1:
+                // 1W
+                this.orderStatus[0].approved = 1120;
+                this.orderStatus[0].canceled = 240;
+                this.orderStatus[0].Year = 'Sep 6 - Sep 12';
+                this.orderStatus[1].approved = 1248;
+                this.orderStatus[1].canceled = 311;
+                this.orderStatus[1].Year = 'Sep 13 - Sep 19';
+                this.orderStatus[2].approved = 1144;
+                this.orderStatus[2].canceled = 198;
+                this.orderStatus[2].Year = 'Sep 20 - Sep 26';
+                this.orderStatus[3].approved = 1315;
+                this.orderStatus[3].canceled = 180;
+                this.orderStatus[3].Year = 'Sep 27 - Oct 3';
+                this.orderStatus[4].approved = 1048;
+                this.orderStatus[4].canceled = 254;
+                this.orderStatus[4].Year = 'Oct 4 - Oct 10';
+                break;
+            case 2:
+                // 1M
+                this.orderStatus[0].approved = 1120;
+                this.orderStatus[0].canceled = 240;
+                this.orderStatus[0].Year = 'June';
+                this.orderStatus[1].approved = 1248;
+                this.orderStatus[1].canceled = 311;
+                this.orderStatus[1].Year = 'July';
+                this.orderStatus[2].approved = 1144;
+                this.orderStatus[2].canceled = 198;
+                this.orderStatus[2].Year = 'August';
+                this.orderStatus[3].approved = 1315;
+                this.orderStatus[3].canceled = 180;
+                this.orderStatus[3].Year = 'September';
+                this.orderStatus[4].approved = 1048;
+                this.orderStatus[4].canceled = 254;
+                this.orderStatus[4].Year = 'October';
+                break;
+        }
+    }
 
 }
