@@ -1,12 +1,12 @@
 <section class="filter-section">
     <div class="filtering-buttons-row">
-        <button igxButton="flat">Active</button>
+        <button igxButton="flat" (click)="filterActive()">Active</button>
         <button igxButton="flat" (click)="filterLowInventory()">Low Inventory</button>
-        <button igxButton="flat">Kits</button>
-        <button igxButton="flat">Dropship</button>
-        <button igxButton="flat">Total Commited</button>
-        <button igxButton="flat">Oversold</button>
-        <button igxButton="flat">Archived</button>
+        <button igxButton="flat" (click)="filterKits()">Kits</button>
+        <button igxButton="flat" (click)="filterDropship()">Dropship</button>
+        <button igxButton="flat" (click)="filterTotalCommited()">Total Commited</button>
+        <button igxButton="flat" (click)="filterOversold()">Oversold</button>
+        <button igxButton="flat" (click)="filterArchived()">Archived</button>
     </div>
 
     <igx-divider></igx-divider>

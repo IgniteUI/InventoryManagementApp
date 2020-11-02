@@ -64,6 +64,22 @@ export class Product {
         this.commited = val;
     }
 
+    get Dropship(): boolean  {
+        return this.dropship;
+    }
+
+    set Dropship(val) {
+        this.dropship = val;
+    }
+
+    get Archived(): boolean  {
+        return this.archived;
+    }
+
+    set Archived(val) {
+        this.archived = val;
+    }
+
     private product: string;
     private sku: string;
     private supplier: string;
@@ -72,6 +88,8 @@ export class Product {
     private physOnHand: number;
     private available: number;
     private commited: number;
+    private dropship: boolean;
+    private archived: boolean;
 
     constructor() {
         this.product = '';
@@ -82,5 +100,7 @@ export class Product {
         this.physOnHand = 0;
         this.available = 0;
         this.commited = 0;
+        this.dropship = false;
+        this.archived = false;
     }
 }
