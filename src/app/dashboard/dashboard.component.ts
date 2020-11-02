@@ -148,52 +148,33 @@ export class DashboardComponent {
         switch (event.index) {
             case 0:
                 // 1D
-                this.orderStatus[0].approved = 220;
-                this.orderStatus[0].canceled = 60;
-                this.orderStatus[1].approved = 520;
-                this.orderStatus[1].canceled = 80;
-                this.orderStatus[2].approved = 200;
-                this.orderStatus[2].canceled = 30;
-                this.orderStatus[3].approved = 360;
-                this.orderStatus[3].canceled = 100;
-                this.orderStatus[4].approved = 490;
-                this.orderStatus[4].canceled = 85;
+                this.orderStatus = [
+                    { Year: 'Sep 30', approved: 220, canceled: 60 },
+                    { Year: 'Oct 1', approved: 520, canceled: 80 },
+                    { Year: 'Oct 2', approved: 200, canceled: 30 },
+                    { Year: 'Oct 3', approved: 360, canceled: 100 },
+                    { Year: 'Oct 4', approved: 490, canceled: 85 }
+                ];
                 break;
             case 1:
                 // 1W
-                this.orderStatus[0].approved = 1120;
-                this.orderStatus[0].canceled = 240;
-                this.orderStatus[0].Year = 'Sep 6 - Sep 12';
-                this.orderStatus[1].approved = 1248;
-                this.orderStatus[1].canceled = 311;
-                this.orderStatus[1].Year = 'Sep 13 - Sep 19';
-                this.orderStatus[2].approved = 1144;
-                this.orderStatus[2].canceled = 198;
-                this.orderStatus[2].Year = 'Sep 20 - Sep 26';
-                this.orderStatus[3].approved = 1315;
-                this.orderStatus[3].canceled = 180;
-                this.orderStatus[3].Year = 'Sep 27 - Oct 3';
-                this.orderStatus[4].approved = 1048;
-                this.orderStatus[4].canceled = 254;
-                this.orderStatus[4].Year = 'Oct 4 - Oct 10';
+                this.orderStatus = [
+                    { Year: '9/6-9/12', approved: 1120, canceled: 240 },
+                    { Year: '9/13-9/19', approved: 1248, canceled: 311 },
+                    { Year: '9/20-9/26', approved: 1144, canceled: 198 },
+                    { Year: '9/27-10/3', approved: 1315, canceled: 180 },
+                    { Year: '10/4-10/10', approved: 1048, canceled: 254 }
+                ];
                 break;
             case 2:
                 // 1M
-                this.orderStatus[0].approved = 1120;
-                this.orderStatus[0].canceled = 240;
-                this.orderStatus[0].Year = 'June';
-                this.orderStatus[1].approved = 1248;
-                this.orderStatus[1].canceled = 311;
-                this.orderStatus[1].Year = 'July';
-                this.orderStatus[2].approved = 1144;
-                this.orderStatus[2].canceled = 198;
-                this.orderStatus[2].Year = 'August';
-                this.orderStatus[3].approved = 1315;
-                this.orderStatus[3].canceled = 180;
-                this.orderStatus[3].Year = 'September';
-                this.orderStatus[4].approved = 1048;
-                this.orderStatus[4].canceled = 254;
-                this.orderStatus[4].Year = 'October';
+                this.orderStatus = [
+                    { Year: 'June', approved: 26448, canceled: 4512 },
+                    { Year: 'July', approved: 24100, canceled: 3902 },
+                    { Year: 'August', approved: 22056, canceled: 3012 },
+                    { Year: 'September', approved: 27645, canceled: 3256 },
+                    { Year: 'October', approved: 33725, canceled: 4428 }
+                ];
                 break;
         }
     }
