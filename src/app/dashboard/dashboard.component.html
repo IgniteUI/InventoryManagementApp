@@ -121,7 +121,7 @@
     <article class="section__col">
         <header class="section__header">
             <span class="section__header-title">Sales by channel</span>
-            <igx-buttongroup>
+            <igx-buttongroup (onSelect)="selectOrdersByChannel($event)">
                 <button [selected]="true" igxButton>1D</button>
                 <button igxButton>1W</button>
                 <button igxButton>1M</button>
@@ -143,11 +143,10 @@
     <article class="section__col">
         <header class="section__header">
             <span class="section__header-title">Order status</span>
-            <igx-buttongroup>
-                <button [selected]="true" igxButton>1D</button>
-                <button igxButton>1W</button>
-                <button igxButton>1M</button>
-                <button igxButton>1Y</button>
+            <igx-buttongroup (onSelect)="selectOrderStatus($event)">
+                <button [selected]="true" igxButton>Day</button>
+                <button igxButton>Week</button>
+                <button igxButton>Month</button>
             </igx-buttongroup>
         </header>
         <igx-card class="grid-wrapper__card--charts" type="outlined">
