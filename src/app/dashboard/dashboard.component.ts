@@ -1,11 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { health, programming } from '@igniteui/material-icons-extended';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss'],
-    encapsulation: ViewEncapsulation.None
 })
 
 export class DashboardComponent {
@@ -111,7 +109,7 @@ export class DashboardComponent {
         { Year: 'Oct 4', approved: 490, canceled: 85 }
     ];
 
-    public selectOrdersByChannel(event) {
+    public selectOrdersByChannel(event): void {
         switch (event.index) {
             case 0:
                 // 1D
@@ -134,17 +132,10 @@ export class DashboardComponent {
                 this.channelData[2].Orders = 29;
                 this.channelData[3].Orders = 44;
                 break;
-            case 3:
-                // 1Y
-                this.channelData[0].Orders = 45;
-                this.channelData[1].Orders = 38;
-                this.channelData[2].Orders = 29;
-                this.channelData[3].Orders = 52;
-                break;
         }
     }
 
-    public selectOrderStatus(event) {
+    public selectOrderStatus(event): void {
         switch (event.index) {
             case 0:
                 // 1D
