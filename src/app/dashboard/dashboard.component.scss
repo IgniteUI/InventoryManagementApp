@@ -26,7 +26,19 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: $section-space;
+
+            @media only screen and (max-width: 900px) {
+                flex-direction: column;
+                flex-wrap: wrap;
+                min-height: 0;
+                justify-content: center;
+
+                > * {
+                    margin-bottom: rem(8px);
+                }
+            }
         }
+
 
         @include e(header, $m: small) {
             margin-bottom: $section-space / 1.5;
@@ -104,6 +116,7 @@
         @include e(card) {
             max-height: 100%;
             height: 100%;
+            border: none !important;
 
             igx-card-media {
                 display: flex;
@@ -130,6 +143,10 @@
     }
 
     @include b(carousel) {
+        border: rem(1px) solid var(--igx-card-outline-color);
+        border-radius: var(--igx-card-border-radius);
+        overflow: hidden;
+
         @include e(card-total-earned) {
             color: $warn-color;
         }
@@ -138,90 +155,92 @@
         }
     }
 
-    @include b(chart) {
-        @include e(legend) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        @include e(legend-item) {
-            display: flex;
-            align-items: center;
-            font-size: rem(14px);
+    ::ng-deep {
+        @include b(chart) {
+            @include e(legend) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @include e(legend-item) {
+                display: flex;
+                align-items: center;
+                font-size: rem(14px);
 
-            span {
+                span {
+                    margin-right: rem(4px);
+                    width: rem(16px);
+                    height: rem(16px);
+                    border-radius: 4px;
+                }
+
+                &:last-of-type {
+                    margin-left: rem(8px)
+                }
+            }
+
+            @include e(legend-item-color-p) {
+                background: #9BE96B;
+            }
+
+            @include e(legend-item-color-s) {
+                background: #8A5FAB
+            }
+
+            @include e(linear-label) {
+                font-size: 12px;
+                line-height: normal;
+            }
+            @include e(col) {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 $grid-gap
+            }
+            @include e(col, $m: pie) {
+                flex-direction: row-reverse;
+                align-items: center;
+            }
+            @include e(row) {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                margin-bottom: 16px;
+
+                &:nth-child(1) {
+                    margin-right: rem(4px);
+                }
+            }
+            @include m(pie) {
+                flex-direction: row-reverse !important;
+
+                .igx-pie-chart {
+                    margin-right: rem(8px);
+                }
+            }
+
+            @include e(legend-item-badge) {
                 margin-right: rem(4px);
-                width: rem(16px);
-                height: rem(16px);
-                border-radius: 4px;
             }
 
-            &:last-of-type {
-                margin-left: rem(8px)
+            igx-linear-gauge {
+                width: 100%;
             }
-        }
 
-        @include e(legend-item-color-p) {
-            background: var(--igx-primary-500);
-        }
+            .ig-chart-legend-item {
+                margin-bottom: rem(4px);
+            }
 
-        @include e(legend-item-color-s) {
-            background: var(--igx-secondary-500);
-        }
-
-        @include e(linear-label) {
-            font-size: 12px;
-            line-height: normal;
-        }
-        @include e(col) {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            justify-content: center;
-            padding: 0 $grid-gap
-        }
-        @include e(col, $m: pie) {
-            flex-direction: row-reverse;
-            align-items: center;
-        }
-        @include e(row) {
-            display: flex;
-            width: 100%;
-            align-items: center;
-            margin-bottom: 16px;
-
-            &:nth-child(1) {
+            .ig-chart-legend-item-badge {
                 margin-right: rem(4px);
             }
-        }
-        @include m(pie) {
-            flex-direction: row-reverse !important;
 
-            .igx-pie-chart {
-                margin-right: rem(8px);
+            .ig-chart-legend-item,
+            .ig-chart-legend-item-badge {
+                display: flex;
+                align-items: center;
             }
-        }
-
-        @include e(legend-item-badge) {
-            margin-right: rem(4px);
-        }
-
-        igx-linear-gauge {
-            width: 100%;
-        }
-
-        .ig-chart-legend-item {
-            margin-bottom: rem(4px);
-        }
-
-        .ig-chart-legend-item-badge {
-            margin-right: rem(4px);
-        }
-
-        .ig-chart-legend-item,
-        .ig-chart-legend-item-badge {
-            display: flex;
-            align-items: center;
         }
     }
 
@@ -287,26 +306,29 @@
     border-radius: 0 rem(4px) rem(4px) 0;
 }
 
-.color-amazon {
-    .igx-linear-bar__indicator{
-        background: #9BE96B
-    }
-}
 
-.color-ebay {
-    .igx-linear-bar__indicator{
-        background: #8A5FAB
+::ng-deep {
+    .color-amazon {
+        .igx-linear-bar__indicator{
+            background: #9BE96B
+        }
     }
-}
 
-.color-website {
-    .igx-linear-bar__indicator{
-        background: #6AAFFF
+    .color-ebay {
+        .igx-linear-bar__indicator{
+            background: #8A5FAB
+        }
     }
-}
 
-.color-facebook {
-    .igx-linear-bar__indicator{
-        background: #97F3E4
+    .color-website {
+        .igx-linear-bar__indicator{
+            background: #6AAFFF
+        }
+    }
+
+    .color-facebook {
+        .igx-linear-bar__indicator{
+            background: #97F3E4
+        }
     }
 }

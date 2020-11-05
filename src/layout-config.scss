@@ -12,8 +12,9 @@ $drawer-width: rem(228px);
 $danger-color: var(--igx-error-500);
 $success-color: var(--igx-success-500);
 $warn-color: var(--igx-warn-500);
-$logo-graphic-color: $warn-color;
-$logo-text-color: currentColor;
+$logo-graphic-color: #FF9801;
+$logo-graphic-color-dark: #fff;
+$logo-text-color: var(--igx-navdrawer-item-hover-text-color);
 
 $card-min-width: rem(320px);
 

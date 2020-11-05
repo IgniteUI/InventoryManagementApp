@@ -1,12 +1,4 @@
 @import '../../layout-config';
-@import '~igniteui-angular/lib/core/styles/themes/index';
-
-
-$badge-custom-theme: igx-badge-theme(
-    $background-color: #f2591c,
-    $border-color: white,
-    $border-width: 2px,
-);
 
 :host {
     ::ng-deep {
@@ -24,6 +16,7 @@ $badge-custom-theme: igx-badge-theme(
 
         @include e(badge) {
             position: absolute;
+            background: #FF9801;
             top: 0;
             right: 0;
             max-width: rem(10px);
@@ -33,6 +26,7 @@ $badge-custom-theme: igx-badge-theme(
 
         @include e(profile) {
             cursor: pointer;
+            margin-left: rem(32px);
 
             .igx-avatar {
                 margin-right: rem(8px);
@@ -40,10 +34,17 @@ $badge-custom-theme: igx-badge-theme(
         }
 
         @include e(profile-text) {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
             line-height: 1.2;
             font-size: rem(14px);
             span {
                 font-size: rem(12px)
+            }
+
+            @media only screen and (max-width: 650px) {
+                display: none;
             }
         }
     }

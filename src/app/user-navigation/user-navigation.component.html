@@ -1,7 +1,7 @@
 <igx-navbar class="user-nav" [title]="title" [isActionButtonVisible]="true">
     <div class="user-nav__profile" igxLayout igxLayoutDir="row" igxLayoutItemAlign="center">
         <igx-avatar size="small" [roundShape]="true"  src="https://picsum.photos/id/1005/200/300"></igx-avatar>
-        <div class="user-nav__profile-text" igxLayout igxLayoutDir="column">
+        <div class="user-nav__profile-text" >
             <strong class="user-nav__profile-name">User name</strong>
             <span class="user-nav__profile-role">Admin</span>
         </div>
@@ -11,7 +11,7 @@
     </igx-icon>
     <button igxButton="icon">
         <igx-icon class="user-nav__notification">
-            <igx-badge type="warning" class="user-nav__badge"></igx-badge>
+            <igx-badge type="success" class="user-nav__badge"></igx-badge>
             notifications
         </igx-icon>
     </button>
