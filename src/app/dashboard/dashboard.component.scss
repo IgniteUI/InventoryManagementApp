@@ -305,3 +305,30 @@
     height: rem(8px);
     border-radius: 0 rem(4px) rem(4px) 0;
 }
+
+
+::ng-deep {
+    .color-amazon {
+        .igx-linear-bar__indicator{
+            background: #9BE96B
+        }
+    }
+
+    .color-ebay {
+        .igx-linear-bar__indicator{
+            background: #8A5FAB
+        }
+    }
+
+    .color-website {
+        .igx-linear-bar__indicator{
+            background: #6AAFFF
+        }
+    }
+
+    .color-facebook {
+        .igx-linear-bar__indicator{
+            background: #97F3E4
+        }
+    }
+}
