@@ -86,6 +86,6 @@ igx-divider {
 
 ::ng-deep {
     .igx-dialog__window-actions {
-        padding: 0 $form-gap $form-gap $form-gap !important;
+        padding: $form-gap !important;
     }
 }
