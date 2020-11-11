@@ -227,20 +227,20 @@
             igx-linear-gauge {
                 width: 100%;
             }
+        }
 
-            .ig-chart-legend-item {
-                margin-bottom: rem(4px);
-            }
+        .ig-chart-legend-item {
+            margin-bottom: rem(4px);
+        }
 
-            .ig-chart-legend-item-badge {
-                margin-right: rem(4px);
-            }
+        .ig-chart-legend-item-badge {
+            margin-right: rem(4px);
+        }
 
-            .ig-chart-legend-item,
-            .ig-chart-legend-item-badge {
-                display: flex;
-                align-items: center;
-            }
+        .ig-chart-legend-item,
+        .ig-chart-legend-item-badge {
+            display: flex !important;
+            align-items: center;
         }
     }
 
