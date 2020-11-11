@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IgxNavigationDrawerComponent } from 'igniteui-angular';
+import { IgxNavigationDrawerComponent } from '@infragistics/igniteui-angular';
 import { mainNavItems } from '../app-routing.module';
 
 @Component({

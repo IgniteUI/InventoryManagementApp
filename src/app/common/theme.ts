@@ -72,7 +72,7 @@ export class Theme implements ITheme {
     }
 
     generateThemeContent(): string {
-        return `@import '~igniteui-angular/lib/core/styles/themes/index';
+        return `~@import '@infragistics/igniteui-angular/lib/core/styles/themes/index';
 @include igx-core();
 $custom-palette: ${this.generatePalette()};
 @include igx-theme($palette: $custom-palette, $schema: $${this.schema}, $roundness: ${this.roundness}, $elevation: ${this.elevation});

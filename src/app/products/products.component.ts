@@ -21,7 +21,7 @@ import {
     IgxToastPosition,
     ISortingExpression,
     SortingDirection
-} from 'igniteui-angular';
+} from '@infragistics/igniteui-angular';
 
 
 class NumberSummary {
