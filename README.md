@@ -1,6 +1,40 @@
 # InventoryManagementApp
-
 This project was generated with [Ignite UI CLI](https://github.com/IgniteUI/igniteui-cli) version 6.1.0.
+
+Live version of the app - https://igniteui.github.io/InventoryManagementApp/
+
+The InventoryManagementApp application demonstrates how to build an inventory management application with Ignite UI For Angular.
+
+## Components list
+
+- [IgxGrid](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/grid)
+- [IgxActionStrip](https://www.infragistics.com/products/ignite-ui-angular/angular/components/action-strip)
+- [IgxCombo](https://www.infragistics.com/products/ignite-ui-angular/angular/components/combo)
+- [IgxDialog](https://www.infragistics.com/products/ignite-ui-angular/angular/components/dialog)
+- [IgxInputGroup](https://www.infragistics.com/products/ignite-ui-angular/angular/components/input_group)
+- [IgxCard](https://www.infragistics.com/products/ignite-ui-angular/angular/components/card)
+- [IgxAvatar](https://www.infragistics.com/products/ignite-ui-angular/angular/components/avatar)
+- [IgxButtonGroup](https://www.infragistics.com/products/ignite-ui-angular/angular/components/buttongroup)
+- [IgxToast](https://www.infragistics.com/products/ignite-ui-angular/angular/components/toast)
+- [IgxNavBar](https://www.infragistics.com/products/ignite-ui-angular/angular/components/navbar) 
+- [IgxNavDrawer](https://www.infragistics.com/products/ignite-ui-angular/angular/components/navdrawer) 
+- [IgxDivider](https://www.infragistics.com/products/ignite-ui-angular/angular/components/divider)
+- [IgxTooltip](https://www.infragistics.com/products/ignite-ui-angular/angular/components/tooltip)
+- [IgxLayout](https://www.infragistics.com/products/ignite-ui-angular/angular/components/layout)
+- [IgxCarousel](https://www.infragistics.com/products/ignite-ui-angular/angular/components/carousel)
+- [IgxDataChart](https://www.infragistics.com/products/ignite-ui-angular/angular/components/data-chart)
+- [Indigo Theme](https://www.infragistics.com/products/ignite-ui-angular/angular/components/themes/themes-list/indigo)
+
+## Grid features used
+
+- [Group By](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/groupby)
+- [Summaries](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/summaries)
+- [Row Adding](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/row-adding)
+- [Row Pinning](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/row-pinning)
+- [Row Selection](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/row-selection)
+- [Cell Editing](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/cell-editing)
+- [Row Editing](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/row-editing)
+- [Batch Editing](https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/batch-editing)
 
 ## Development server
 
