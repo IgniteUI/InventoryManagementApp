@@ -11,6 +11,16 @@ $app-palette: $light-indigo-palette;
 // Generate css variables from given palette.
 @include igx-palette-vars($app-palette, $contrast: true);*/
 
+// mimic the default request to the theme api service, so it wouldn't wait for the response initially
+$custom-palette: igx-palette($primary: #3f51b5,$secondary: #3f51b5,$surface: #fff,$error: #cf1a2b,$success: #689f38,$warn: #ff9800,$info: #9208bc,$grays: #060716);
+@include igx-core();
+@include igx-theme($palette: $custom-palette, $schema: $light-indigo-schema, $roundness: null, $elevation: null, $legacy-support: null);
+@include igx-typography($font-family: "Nunito Sans", $type-scale: $indigo-type-scale);
+:root {
+	@include igx-palette-vars($custom-palette, true);
+	--igx-background-500: #fff;
+}
+
 html, body {
     height: 100%;
     overflow: hidden;
