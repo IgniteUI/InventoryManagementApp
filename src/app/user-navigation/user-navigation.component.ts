@@ -141,7 +141,7 @@ export class UserNavigationComponent implements OnInit {
 
     ngOnInit(): void {
         // this.resetTheme('igx-indigo-light-theme');
-        document.body.classList.add(this.theme.globalTheme);
+        document.body.classList.add('igx-indigo-light-theme');
     }
 
     get globalTheme(): string {
