@@ -127,7 +127,6 @@
       }
     }
   },
-  "defaultProject": "inventorymanagementapp",
   "cli": {
     "analytics": false
   }
