@@ -8,10 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import {
     IgxActionStripModule,
     IgxGridModule,
+    IgxIconModule,
     IgxDialogModule,
     IgxDividerModule,
+    IgxDropDownModule,
     IgxInputGroupModule,
     IgxToastModule,
+    IgxBadgeModule,
+    IgxButtonGroupModule,
+    IgxProgressBarModule,
     IgxComboModule,
     IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule, IgxCarouselModule, IgxCardModule
 } from 'igniteui-angular';
@@ -31,6 +36,9 @@ import { IgxBarSeriesModule,
 import { IgxLinearGaugeModule } from "igniteui-angular-gauges";
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { UserNavigationComponent } from './user-navigation/user-navigation.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IgxToggleModule } from 'igniteui-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +53,18 @@ import { UserNavigationComponent } from './user-navigation/user-navigation.compo
         AppRoutingModule,
         BrowserAnimationsModule,
         IgxActionStripModule,
+        CommonModule,
+        IgxToggleModule,
+        FormsModule,
+        IgxDropDownModule,
         IgxGridModule,
+        IgxProgressBarModule,
         IgxDialogModule,
         IgxInputGroupModule,
         IgxToastModule,
+        IgxIconModule,
+            IgxBadgeModule,
+    IgxButtonGroupModule,
         IgxComboModule,
         IgxDividerModule,
         IgxNavigationDrawerModule,
