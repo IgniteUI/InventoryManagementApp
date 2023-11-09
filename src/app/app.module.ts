@@ -14,7 +14,7 @@ import {
     IgxToastModule,
     IgxComboModule,
     IgxNavigationDrawerModule, IgxNavbarModule, IgxTooltipModule, IgxAvatarModule, IgxLayoutModule, IgxCarouselModule, IgxCardModule
-} from '@infragistics/igniteui-angular';
+} from 'igniteui-angular';
 import { IgxBarSeriesModule,
   IgxCategoryChartModule,
   IgxCategoryXAxisModule,

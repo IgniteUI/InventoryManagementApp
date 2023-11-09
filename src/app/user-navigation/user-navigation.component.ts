@@ -6,7 +6,7 @@ import {
     ISelectionEventArgs,
     NoOpScrollStrategy,
     VerticalAlignment
-} from '@infragistics/igniteui-angular';
+} from 'igniteui-angular';
 import { ITheme, IThemeStyleSelectedEventArgs } from '../common/interfaces';
 import {
     MATERIAL_LIGHT,
