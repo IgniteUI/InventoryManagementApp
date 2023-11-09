@@ -87,7 +87,7 @@
     </igx-grid>
 </section>
 
-<igx-toast #toast [autoHide]="true" [position]="position"></igx-toast>
+<igx-toast #toast [autoHide]="true"></igx-toast>
 
 <igx-dialog
     class="add-product-dialog"
@@ -95,8 +95,8 @@
     [rightButtonLabel]="'Add Product'"
     [leftButtonLabel]="'Cancel'"
     [rightButtonType]="'raised'"
-    (onLeftButtonSelect)="cancel()"
-    (onRightButtonSelect)="addProduct()">
+    (leftButtonSelect)="cancel()"
+    (rightButtonSelect)="addProduct()">
 
     <form #form class="dialog-form">
         <igx-input-group type="border" class="igx-input-group--border">

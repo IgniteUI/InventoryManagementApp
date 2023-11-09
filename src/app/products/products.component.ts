@@ -47,7 +47,8 @@ class NumberSummary {
 }
 
 @Component({
-    providers: [{provide: IgxGridTransaction, useClass: IgxTransactionService}],
+    providers: [/* Injection token 'IgxGridTransaction' has been deprecated. Please refer to the update guide for more details. */
+{provide: IgxGridTransaction, useClass: IgxTransactionService}],
     selector: 'app-products',
     templateUrl: './products.component.html',
     styleUrls: ['./products.component.scss']

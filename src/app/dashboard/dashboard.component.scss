@@ -67,7 +67,7 @@
             font-size: rem(48px);
             height: rem(48px);
             width: rem(48px);
-            color: var(--igx-primary-500);
+            color: var(--ig-primary-500);
             margin-right: rem(8px);
         }
 
@@ -252,14 +252,14 @@
 
         @include e(title) {
             font-size: rem(28px) !important;
-            color: var(--igx-primary-500);
+            color: var(--ig-primary-500);
         }
 
         @include e(subtitle) {
             text-transform: uppercase !important;
             font-size: rem(14px) !important;
             margin-top: rem(4px) !important;
-            color: var(--igx-grays-800);
+            color: var(--ig-gray-800);
             @include ellipsis();
         }
 
@@ -270,7 +270,7 @@
             margin-right: rem(16px);
 
             .igx-icon {
-                color: var(--igx-primary-500);
+                color: var(--ig-primary-500);
                 font-size: rem(52px);
                 height: rem(52px);
                 width: rem(52px);

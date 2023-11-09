@@ -1,6 +1,6 @@
 <igx-navbar class="user-nav" [title]="title" [isActionButtonVisible]="true">
     <div class="user-nav__profile" igxLayout igxLayoutDir="row" igxLayoutItemAlign="center">
-        <igx-avatar size="small" [roundShape]="true"  src="https://picsum.photos/id/1005/200/300"></igx-avatar>
+        <igx-avatar size="small" shape="circle"  src="https://picsum.photos/id/1005/200/300"></igx-avatar>
         <div class="user-nav__profile-text" >
             <strong class="user-nav__profile-name">User name</strong>
             <span class="user-nav__profile-role">Admin</span>
@@ -25,7 +25,7 @@
         </igx-icon>
     </button>
     <!--<igniteui-theming-widget themeUrl="https://igniteuithemingwidget-staging.infragistics.com/api/taas"></igniteui-theming-widget>-->
-    <igx-drop-down class="dropdown" #dropDown (onClosing)='onDropDownClosing($event)' (onSelection)="onThemeSelectionHandler($event)" [width]="'200px'" >
+    <igx-drop-down class="dropdown" #dropDown (closing)='onDropDownClosing($event)' (selectionChanging)="onThemeSelectionHandler($event)" [width]="'200px'" >
         <igx-drop-down-item *ngFor="let theme of themes" [value]="theme.globalTheme">
             <div class="dropdown__item">
                 <div class="dropdown__colors">

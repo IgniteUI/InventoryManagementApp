@@ -1,4 +1,6 @@
-@import '~igniteui-angular/lib/core/styles/themes/index';
+/* Line added via automated migrations. */
+@use "igniteui-angular/theming" as *;
+
 @import '~igniteui-angular/lib/core/styles/base/index';
 
 // Vars
@@ -9,9 +11,9 @@ $form-gap: rem(24px);
 $section-space: rem(16px);
 $drawer-width: rem(228px);
 
-$danger-color: var(--igx-error-500);
-$success-color: var(--igx-success-500);
-$warn-color: var(--igx-warn-500);
+$danger-color: var(--ig-error-500);
+$success-color: var(--ig-success-500);
+$warn-color: var(--ig-warn-500);
 $logo-graphic-color: #FF9801;
 $logo-graphic-color-dark: #fff;
 $logo-text-color: var(--igx-navdrawer-item-hover-text-color);
